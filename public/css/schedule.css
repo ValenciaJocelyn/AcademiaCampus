@@ -1,0 +1,261 @@
+.header p {
+  color: #777;
+  margin-top: 0.3rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: right;
+  gap: 1rem;
+}
+
+.search-container {
+  width: 100%;
+}
+
+/* Calendar section */
+.calendar-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Calendar Left */
+.calendar-left {
+  flex: 2;
+  background: white;
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Tabs and Add button */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tab {
+  background: #f0f0f0;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: black;
+}
+
+.tab.active {
+  background: var(--primary-color);
+  color: var(--primary-text-color);
+}
+
+.add-btn {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.day-name {
+  font-weight: 600;
+  text-align: center;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.day {
+  background-color: #fdfdff;
+  padding: 0.8rem;
+  border-radius: 10px;
+  min-height: 80px;
+  position: relative;
+  font-size: 0.95rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+.day .date {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.day.empty {
+  background: transparent;
+  box-shadow: none;
+}
+
+.event {
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: white;
+  margin-top: 0.3rem;
+  width: fit-content;
+}
+
+.event.red {
+  background-color: #ff5b5b;
+}
+
+.event.yellow {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.event.pink {
+  background-color: #e91e63;
+}
+
+.event.gray {
+  background-color: #9e9e9e;
+}
+
+/* Event Form */
+.event-form {
+  flex: 1;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.event-form h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.event-form input,
+.event-form label,
+.event-form button {
+  width: 100%;
+}
+
+.event-form input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.event-form label {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: #666;
+}
+
+.event-form .type-toggle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.type-toggle button {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #f0f0f5;
+  font-weight: 600;
+  color: black;
+}
+
+.type-toggle button.active {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+}
+
+/* Grid wrapper for calendar */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+/* Day names (Sun, Mon, etc.) */
+.day-name {
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem 0;
+  color: #555;
+}
+
+/* Day cells */
+.day {
+  background-color: var(--primary-tint-color);
+  border: 2px solid var(--primary-tint-color);
+  border-radius: 12px;
+  min-height: 100px;
+  padding: 0.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Hover effect */
+.day:hover {
+  background-color: #ebe9ff;
+  cursor: pointer;
+}
+
+/* Date number inside each box */
+.date {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Empty day placeholder */
+.day.empty {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Event styling (already works) */
+.event {
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  border-radius: 6px;
+  color: white;
+  margin-top: 6px;
+  word-wrap: break-word;
+}
+
+.event.red {
+  background-color: #f44336;
+}
+
+.event.yellow {
+  background-color: #ff9800;
+}
+
+.event.pink {
+  background-color: #e91e63;
+}
+
+.event.gray {
+  background-color: #9e9e9e;
+}

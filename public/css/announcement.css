@@ -1,0 +1,88 @@
+/* Tab Menu */
+.tab-menu {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    background-color: #dcdde1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab.active {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
+.tab:hover {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
+/* Announcement List */
+.announcement-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px;
+}
+
+/* Announcement Card */
+.announcement-card {
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    height: 180px;
+}
+
+.announcement-card.green.btn-more {
+    height: 10px;
+    background-color: black;
+}
+
+.announcement-card:hover {
+    transform: translateY(-5px);
+}
+
+.purple { background-color: #6a55d3; }
+.orange { background-color: #f39c12; }
+.blue { background-color: #3498db; }
+.green { background-color: #27ae60; }
+.teal { background-color: #1abc9c; }
+.red { background-color: #e74c3c; }
+.yellow { background-color: #f1c40f; }
+
+.btn-more {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 18px;
+
+}
+
+.btn-more:hover {
+    background-color: #c7c4c6;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .main-content {
+        margin-left: 0;
+    }
+    .sidebar {
+        position: relative;
+        height: auto;
+        width: 100%;
+    }
+}

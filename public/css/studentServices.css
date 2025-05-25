@@ -1,0 +1,73 @@
+.service-nav {
+  margin-bottom: 50px;
+}
+
+.service-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.service-nav ul li a {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.service-nav ul li a:hover {
+  background-color: var(--primary-text-color);
+  color: var(--primary-color);
+}
+
+section {
+  margin-bottom: 3rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+  margin-top: 0;
+  color: black;
+}
+
+.card {
+  background-color: var(--primary-tint-color);
+  border: 1px solid #cbd5e1;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: black;
+}
+
+.card button {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+.card button:hover {
+  background-color: var(--primary-hover-color);
+}

@@ -1,0 +1,146 @@
+/* Reset dan dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #dfe9f3, #eef1f7); /* background ungu lembut */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container luar */
+.container {
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Kotak form */
+.form-box {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* Judul */
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+}
+
+/* Google Button Container */
+.google-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Tombol Google */
+.google-btn {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s;
+}
+
+.google-btn img {
+  height: 18px;
+}
+
+.google-btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #888;
+  font-size: 14px;
+}
+
+/* Form input */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+/* Opsi login */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.options a {
+  text-decoration: none;
+  color: #1d72f3;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+/* Tombol login */
+.login-btn {
+  background-color: #1d72f3;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #155ac3;
+}
+
+/* Link sign up */
+.signup-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup-link a {
+  color: #1d72f3;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
