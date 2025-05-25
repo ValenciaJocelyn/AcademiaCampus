@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShuttleBookingController;
 use App\Http\Controllers\AdminManagementController;
@@ -90,10 +89,3 @@ Route::get('/logout', function (Request $request) {
 })->name('logout');
 
 require __DIR__.'/auth.php';
-=======
-use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('index');
-});
->>>>>>> f36b9b3b632fa8556371d9b4548c652f3dda6990
