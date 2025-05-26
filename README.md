@@ -1,6 +1,5 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<<<<<<< HEAD
 - Sistem login cukup satu form. Saat user login:
   - Jika username berupa **NIM mahasiswa**, akan diarahkan ke dashboard mahasiswa.
   - Jika username terdeteksi sebagai admin, akan diarahkan ke dashboard admin.
@@ -86,7 +85,7 @@ Pastikan sudah menginstall:
 2. Jalankan perintah berikut:
 
 ```bash
-git clone https://github.com/StanleyChristianDarmawan/project-databasedesign
+git clone https://github.com/ValenciaJocelyn/SE_AoLProject
 cd project-databasedesign
 ```
 
@@ -243,4 +242,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> f36b9b3b632fa8556371d9b4548c652f3dda6990
