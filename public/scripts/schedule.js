@@ -47,3 +47,87 @@ for (const day of days) {
 document.getElementById("event-title").value = "";
 document.getElementById("event-date").value = "";
 });
+
+function addEventToCalendar() {
+    const title = document.getElementById('event-title').value.trim();
+    const from = document.getElementById('event-from').value;
+    const to = document.getElementById('event-to').value;
+    const date = document.getElementById('event-date').value;
+
+    if (!title || !from || !to || !date) {
+      alert('Please fill out all fields');
+      return;
+    }
+
+    // Ambil tanggal (misalnya 2025-06-03), lalu ambil bagian tanggalnya saja (3)
+    const dateObj = new Date(date);
+    const day = dateObj.getDate();
+
+    // Cari elemen .day yang memiliki span.date dengan angka yang sesuai
+    const days = document.querySelectorAll('.calendar-grid .day');
+    for (let i = 0; i < days.length; i++) {
+      const daySpan = days[i].querySelector('.date');
+      if (daySpan && parseInt(daySpan.textContent) === day) {
+        const eventDiv = document.createElement('div');
+        eventDiv.className = 'event red';
+        eventDiv.innerHTML = `${title}<br>${from} - ${to}`;
+        days[i].appendChild(eventDiv);
+        break;
+      }
+    }
+
+    // Bersihkan form
+    document.getElementById('event-title').value = '';
+    document.getElementById('event-from').value = '';
+    document.getElementById('event-to').value = '';
+    document.getElementById('event-date').value = '';
+  }
+
+
+  //Delete Button
+    function addEventToCalendar() {
+    const title = document.getElementById('event-title').value.trim();
+    const from = document.getElementById('event-from').value;
+    const to = document.getElementById('event-to').value;
+    const date = document.getElementById('event-date').value;
+
+    if (!title || !from || !to || !date) {
+      alert('Please fill out all fields');
+      return;
+    }
+
+    const dateObj = new Date(date);
+    const day = dateObj.getDate();
+
+    const days = document.querySelectorAll('.calendar-grid .day');
+    for (let i = 0; i < days.length; i++) {
+      const daySpan = days[i].querySelector('.date');
+      if (daySpan && parseInt(daySpan.textContent) === day) {
+        // Buat div event baru
+        const eventDiv = document.createElement('div');
+        eventDiv.className = 'event red'; // bisa kamu ubah warna sesuai kebutuhan
+
+        eventDiv.innerHTML = `
+          ${title}<br>${from} - ${to}
+          <span class="delete-btn" title="Delete event">&times;</span>
+        `;
+
+        // Pasang event listener delete
+        eventDiv.querySelector('.delete-btn').addEventListener('click', function(e) {
+          e.stopPropagation(); // biar gak n-trigger event lain kalau ada
+          if(confirm('Are you sure you want to delete this event?')) {
+            eventDiv.remove();
+          }
+        });
+
+        days[i].appendChild(eventDiv);
+        break;
+      }
+    }
+
+    // Clear form inputs
+    document.getElementById('event-title').value = '';
+    document.getElementById('event-from').value = '';
+    document.getElementById('event-to').value = '';
+    document.getElementById('event-date').value = '';
+}

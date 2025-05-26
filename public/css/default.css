@@ -69,6 +69,8 @@ body {
 
 .notification:hover {
     color: var(--primary-color); /* Warna berubah saat di-hover */
+    border: var(--primary-text-color);
+    border-width: 100px;
 }
 
 .profile {

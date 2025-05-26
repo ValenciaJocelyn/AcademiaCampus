@@ -1,6 +1,6 @@
 .welcome-box {
   margin-top: 30px;
-  background: #ffeef5;
+  background: var(--primary-tint-color);
   padding: 20px;
   border-radius: 16px;
   display: flex;
@@ -9,7 +9,7 @@
 }
 
 .welcome-box .highlight {
-  color: #f25f5c;
+  color: rgb(87, 87, 87);
 }
 
 .welcome-box .illustration img {
@@ -275,6 +275,53 @@ canvas#weeklyChart {
 .legend-quiz { background-color: #f06292; }
 .legend-assignment { background-color: #2196f3; }
 
+/* Biar Upcoming Events ngisi ruang kosong */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.full-width {
+  grid-column: span 2; /* ini membuat Upcoming Events isi 2 kolom */
+}
+
+/* Upcoming Events styles (lanjutan dari CSS kamu sebelumnya) */
+.upcoming-events-card {
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 2;
+
+}
+
+.event-scroll {
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-right: 5px;
+  flex-grow: 1;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.event-list li {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.event-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.event-scroll::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
 
 .cards {
   display: grid;
@@ -469,6 +516,87 @@ canvas#weeklyChart {
   grid-template-columns: repeat(6, 100px);
   height: 50px;
   align-items: center;
+}
+
+.grid-cell {
+  padding: 10px;
+  border: 1px solid #eee;
+  text-align: center;
+  min-height: 60px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  font-weight: 500;
+}
+
+/* Warna Soft Beda-Beda */
+.course-research {
+  background-color: #e6e0f8;
+  color: #4b3c77;
+}
+
+.course-bigdata {
+  background-color: #f5e6ff;
+  color: #5f3b71;
+}
+
+.course-softeng {
+  background-color: #e0f7f5;
+  color: #326d64;
+}
+
+.course-softeng-tut {
+  background-color: #d5f3eb;
+  color: #2d6157;
+}
+
+.course-cloud {
+  background-color: #fff0e1;
+  color: #704c28;
+}
+
+.course-dataanalysis {
+  background-color: #fef3db;
+  color: #7a5a1a;
+}
+
+.course-dbproject {
+  background-color: #e7f0fa;
+  color: #285079;
+}
+
+.course-biology {
+  background-color: #f2e8ff;
+  color: #5c3d91;
+}
+
+.course-biology-lab {
+  background-color: #e5dfff;
+  color: #513b85;
+}
+
+.course-usability {
+  background-color: #ffe4ec;
+  color: #914b68;
+}
+
+.course-db-lab {
+  background-color: #e0f0ff;
+  color: #376a95;
+}
+
+/* Hover effect */
+.grid-cell[class^="course-"]:hover {
+  opacity: 0.95;
+  cursor: pointer;
+}
+
+
+.grid-cell:not(:empty):not([class*="course-"]) {
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
 }
 
 .event {

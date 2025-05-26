@@ -167,6 +167,21 @@
   gap: 0.5rem;
 }
 
+.delete-btn {
+  background: var(--primary-color);
+  border: none;
+  color: var(--primary-text-color);
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+  font-size: 0.9rem;
+  padding: 0 4px;
+}
+
+.delete-btn:hover {
+    background-color: var(--primary-hover-color);
+}
+
 .type-toggle button {
   flex: 1;
   padding: 0.5rem;
@@ -216,7 +231,7 @@
 
 /* Hover effect */
 .day:hover {
-  background-color: #ebe9ff;
+  background-color: var(--primary-pale-color);
   cursor: pointer;
 }
 

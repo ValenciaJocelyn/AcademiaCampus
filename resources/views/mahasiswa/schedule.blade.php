@@ -79,7 +79,6 @@
               <button class="tab">Week</button>
               <button class="tab">Day</button>
             </div>
-            <button class="add-btn">+ Add</button>
           </div>
 
           <div class="calendar-grid">
@@ -137,22 +136,31 @@
 
         <!-- Event Form -->
         <div class="event-form">
-          <h3>Add Event</h3>
-          <div class="type-toggle">
-            <button class="active">Reminder</button>
-            <button>Event</button>
-          </div>
-          <input type="text" placeholder="Title" />
-          <label>From</label>
-          <input type="time" />
-          <label>To</label>
-          <input type="time" />
-          <label>Date</label>
-          <input type="date" />
-          <label>Location</label>
-          <input type="text" placeholder="Location" />
-          <button class="add-btn">+ Add</button>
-        </div>
+            <h3>Add Event</h3>
+            <div class="type-toggle">
+                <button class="active">Reminder</button>
+                <button>Event</button>
+            </div>
+            <input id="event-title" type="text" placeholder="Title (e.g. Assignment Data Analysis)" />
+            <label for="event-from">From</label>
+            <input id="event-from" type="time" />
+            <label for="event-to">To</label>
+            <input id="event-to" type="time" />
+            <label for="event-date">Date</label>
+            <input id="event-date" type="date" />
+            <button class="add-btn" onclick="addEventToCalendar()">+ Add</button>
+            </div>
+
+
+            <div id="deleteModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <p id="deleteMessage">Are you sure you want to delete this event?</p>
+                <div class="modal-buttons">
+                <button id="confirmDelete">OK</button>
+                <button id="cancelDelete">Cancel</button>
+                </div>
+            </div>
+            </div>
       </section>
     </main>
   </div>

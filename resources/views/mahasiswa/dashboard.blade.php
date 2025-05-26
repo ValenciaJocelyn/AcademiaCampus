@@ -83,12 +83,11 @@
                   <div class="progress" style="width: 80%"></div>
                 </div>
                 <small>8 out of 10 lessons complete</small>
-
               </div>
-
             </div>
             <button class="resume-button">Resume</button>
           </div>
+
           <div class="class-item">
             <img src="{{ asset('assets/databaseDesign.jpg') }}" alt="Database Design" />
             <div>
@@ -139,7 +138,40 @@
       </section>
     </main>
 
+    <aside class="calendar-side">
+        <div class="schedule-section">
+            <h2>Schedule</h2>
+        </div>
 
+        <!-- Kalender Bulanan -->
+        <div class="card upcoming-events-card">
+            <h3>Upcoming Events</h3>
+            <div class="event-scroll">
+                <ul class="event-list">
+                <li>
+                    📢 <strong>AI in Education</strong><br>
+                    <small>July 18, 10:00 AM via Zoom</small>
+                </li>
+                <li>
+                    📝 <strong>UX Case Study Submission</strong><br>
+                    <small>Due July 21 via Moodle</small>
+                </li>
+                <li>
+                    🤝 <strong>Design Sprint Meeting</strong><br>
+                    <small>July 22, 3:00 PM at Library Room B</small>
+                </li>
+                <li>
+                    👨‍🏫 <strong>Guest Lecture: Data Analytics</strong><br>
+                    <small>July 25, 09:00 AM at Hall A</small>
+                </li>
+                <li>
+                    🧪 <strong>Usability Test</strong><br>
+                    <small>July 26, Computer Lab 1</small>
+                </li>
+                <!-- Tambahkan lebih banyak jika perlu -->
+                </ul>
+            </div>
+        </div>
 
   <aside class="calendar-side">
     <div class="schedule-section">
@@ -191,50 +223,82 @@
     <div class="calendar-grid">
       <!-- Header Row -->
       <div class="grid-header">
-        <div>07.20</div><div>09.20</div><div>11.20</div><div>13.20</div><div>15.20</div><div>17.20</div>
-      </div>
+        <div>07.20</div>
+        <div>09.20</div>
+        <div>11.20</div>
+        <div>13.20</div>
+        <div>15.20</div>
+        <div>17.20</div>
+    </div>
 
-      <!-- Rows for each day -->
-      <div class="grid-row" data-day="Mon">
-        <div class="grid-cell" data-time="8"></div>
-        <div class="grid-cell" data-time="9"></div>
-        <div class="grid-cell" data-time="10"></div>
-        <div class="grid-cell" data-time="11"></div>
-        <div class="grid-cell" data-time="12"></div>
-        <div class="grid-cell" data-time="13"></div>
-      </div>
-      <div class="grid-row" data-day="Tue">
-        <div class="grid-cell" data-time="8"></div>
-        <div class="grid-cell" data-time="9"></div>
-        <div class="grid-cell" data-time="10"></div>
-        <div class="grid-cell" data-time="11"></div>
-        <div class="grid-cell" data-time="12"></div>
-        <div class="grid-cell" data-time="13"></div>
-      </div>
-      <div class="grid-row" data-day="Wed">
-        <div class="grid-cell" data-time="8"></div>
-        <div class="grid-cell" data-time="9"></div>
-        <div class="grid-cell" data-time="10"></div>
-        <div class="grid-cell" data-time="11"></div>
-        <div class="grid-cell" data-time="12"></div>
-        <div class="grid-cell" data-time="13"></div>
-      </div>
-      <div class="grid-row" data-day="Thu">
-        <div class="grid-cell" data-time="8"></div>
-        <div class="grid-cell" data-time="9"></div>
-        <div class="grid-cell" data-time="10"></div>
-        <div class="grid-cell" data-time="11"></div>
-        <div class="grid-cell" data-time="12"></div>
-        <div class="grid-cell" data-time="13"></div>
-      </div>
-      <div class="grid-row" data-day="Sun">
-        <div class="grid-cell" data-time="8"></div>
-        <div class="grid-cell" data-time="9"></div>
-        <div class="grid-cell" data-time="10"></div>
-        <div class="grid-cell" data-time="11"></div>
-        <div class="grid-cell" data-time="12"></div>
-        <div class="grid-cell" data-time="13"></div>
-      </div>
+      <!-- Monday -->
+    <div class="grid-row" data-day="Mon">
+      <div class="grid-cell"></div>
+      <div class="grid-cell course-research">Research Methodology</div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell course-bigdata">Big Data Processing</div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+    </div>
+
+    <!-- Tuesday -->
+    <div class="grid-row" data-day="Tue">
+      <div class="grid-cell"></div>
+      <div class="grid-cell course-softeng">Software Engineering</div>
+      <div class="grid-cell course-softeng">Software Engineering</div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell course-cloud">Distributed Cloud Computing</div>
+      <div class="grid-cell"></div>
+    </div>
+
+    <!-- Wednesday -->
+    <div class="grid-row" data-day="Wed">
+      <div class="grid-cell"></div>
+      <div class="grid-cell course-dataanalysis">Data Analysis</div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell course-softeng-tut">Software Engg (TUT)</div>
+      <div class="grid-cell course-dbproject">Project Database Design</div>
+      <div class="grid-cell"></div>
+    </div>
+
+    <!-- Thursday -->
+    <div class="grid-row" data-day="Thu">
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell course-biology">Computational Biology</div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell course-biology-lab">Computational Biology (LAB)</div>
+    </div>
+
+    <!-- Friday -->
+    <div class="grid-row" data-day="Fri">
+      <div class="grid-cell course-usability">Usability Testing</div>
+      <div class="grid-cell course-db-lab">Database Design (LAB)</div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell course-cloud">Distributed Cloud Computing</div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+    </div>
+
+    <!-- Saturday -->
+    <div class="grid-row" data-day="Sat">
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+    </div>
+
+    <!-- Sunday -->
+    <div class="grid-row" data-day="Sun">
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
     </div>
   </div>
 </div>

@@ -120,7 +120,7 @@
                     <option value="Alam Sutera - Kemanggisan">Alam Sutera - Kemanggisan</option>
                 </select>
             </div>
-            <button type="submit" class="btn-submit">Pesan Shuttle</button>
+            <button type="submit" class="btn-submit">Book Shuttle</button>
             </form>
         </div>
       </section>

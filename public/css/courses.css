@@ -371,10 +371,10 @@ section h2 {
 
 /* Calendar */
 .calendar {
-  background: #3a86ff;
+  background: var(--primary-color);
   border-radius: 20px;
   padding: 28px;
-  color: white;
+  color: var(--primary-text-color);
   margin-bottom: 32px;
 }
 
@@ -392,11 +392,12 @@ section h2 {
 }
 
 .calendar-grid .active {
-  background: #fff;
-  color: #3a86ff;
+  background: var(--primary-text-color);
+  color: var(--primary-color);
   font-weight: bold;
   border-radius: 50%;
   padding: 6px;
+  margin-top: -5px;
 }
 
 /* Schedule Class */
@@ -424,8 +425,8 @@ section h2 {
 }
 
 .class-item.active {
-  background-color: #000;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
 }
 
 .class-item .date {
