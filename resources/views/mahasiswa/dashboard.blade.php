@@ -62,7 +62,7 @@
 
       <section class="welcome-box">
         <div>
-          <h2>It's Good to have you back <span class="highlight">Christiano!</span></h2>
+          <h2>It's Good to have you back <span class="highlight">Syahira!</span></h2>
           <p>You've completed <b>3 lessons</b> today. Keep Going! You’re almost finished.</p>
           <div class="progress-bar">
             <div class="progress" style="width: 80%"></div>

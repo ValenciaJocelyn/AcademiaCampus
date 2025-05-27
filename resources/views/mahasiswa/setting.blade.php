@@ -79,23 +79,23 @@
               <form class="form-profile">
                 <div class="form-row">
                   <div class="form-group">
-                    <label for="firstname">First Name</label>
-                    <input type="text" id="firstname" placeholder="First name" required>
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" placeholder="Full name" value="{{ auth()->user()->username }}"required>
                   </div>
                   <div class="form-group">
-                    <label for="lastname">Last Name</label>
-                    <input type="text" id="lastname" placeholder="Last name" required>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Username" value="{{ auth()->user()->name }}" required>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="email">Email Address</label>
-                  <input type="email" id="email" placeholder="Your email" required>
+                  <input type="email" id="email" placeholder="Your email" value="{{ auth()->user()->email }}"required>
                 </div>
 
                 <div class="form-group">
                   <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" placeholder="Optional">
+                  <input type="tel" id="phone" placeholder="Phone Number" value="{{ auth()->user()->no_hp }}">
                 </div>
 
                 <div class="form-group">
