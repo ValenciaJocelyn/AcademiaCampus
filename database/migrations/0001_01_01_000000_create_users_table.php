@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('no_hp')->nullable();
             $table->string('role')->default('student');
+            $table->enum('gender', ['male', 'female', 'others'])->nullable();
+            $table->date('dob')->nullable();
+            $table->string('address')->nullable();
+            $table->string('campus')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

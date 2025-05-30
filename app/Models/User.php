@@ -24,6 +24,10 @@ class User extends Authenticatable
         'no_hp',
         'password',
         'role',
+        'gender',
+        'dob',
+        'address',
+        'campus',
         'email',
         'password',
     ];

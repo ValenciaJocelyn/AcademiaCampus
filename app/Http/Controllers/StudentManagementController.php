@@ -38,6 +38,10 @@ class StudentManagementController extends Controller
             'no_hp' => $request->no_hp,
             'password' => Hash::make($request->password),
             'role' => 'student',
+            'gender' => $request->gender,
+            'dob' => $request->dob,
+            'address' => $request->address,
+            'campus' => $request->campus
         ]);
 
         return redirect()->route('admin.student-management')->with('success', 'Student created successfully.');
@@ -59,12 +63,17 @@ class StudentManagementController extends Controller
             'username' => 'required|string|unique:users,username,' . $student->id,
             'no_hp' => 'required|string|max:20',
             'password' => 'nullable|string|min:6',
+            'gender' => 'nullable|in:male,female,others'
         ]);
 
         $student->name = $request->name;
         $student->email = $request->email;
         $student->username = $request->username;
         $student->no_hp = $request->no_hp;
+        $student->gender = $request->gender;
+        $student->dob = $request->dob;
+        $student->address = $request->address;
+        $student->campus = $request->campus;
 
         if ($request->filled('password')) {
             $student->password = Hash::make($request->password);

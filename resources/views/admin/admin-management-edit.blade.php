@@ -57,6 +57,11 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" value="{{ $admin->username }}" required>
+                </div>
+
+                <div class="mb-3">
                     <label for="no_hp" class="form-label">Phone Number</label>
                     <input type="text" name="no_hp" id="no_hp" class="form-control" value="{{ old('no_hp', $admin->no_hp) }}" required>
                 </div>
@@ -64,11 +69,6 @@
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
                     <input type="email" name="email" id="email" class="form-control" value="{{ $admin->email }}" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" value="{{ $admin->username }}" required>
                 </div>
 
                 <div class="mb-3">

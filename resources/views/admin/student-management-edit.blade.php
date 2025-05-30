@@ -57,8 +57,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="no_hp" class="form-label">Phone Number</label>
-                    <input type="text" name="no_hp" id="no_hp" class="form-control" value="{{ old('no_hp', $student->no_hp) }}" required>
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" value="{{ $student->username }}" required>
                 </div>
 
                 <div class="mb-3">
@@ -67,8 +67,33 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" value="{{ $student->username }}" required>
+                    <label for="no_hp" class="form-label">Phone Number</label>
+                    <input type="text" name="no_hp" id="no_hp" class="form-control" value="{{ old('no_hp', $student->no_hp) }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select name="gender" id="gender" class="form-control">
+                        <option value="">Select</option>
+                        <option value="male" {{ $student->gender === 'male' ? 'selected' : '' }}>Male</option>
+                        <option value="female" {{ $student->gender === 'female' ? 'selected' : '' }}>Female</option>
+                        <option value="others" {{ $student->gender === 'others' ? 'selected' : '' }}>Others</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="dob" class="form-label">Birth Date</label>
+                    <input type="date" name="dob" id="dob" class="form-control" value="{{ $student->dob }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" name="address" id="address" class="form-control" value="{{ $student->address }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="campus" class="form-label">Campus</label>
+                    <input type="text" name="campus" id="campus" class="form-control" value="{{ $student->campus }}">
                 </div>
 
                 <div class="mb-3">

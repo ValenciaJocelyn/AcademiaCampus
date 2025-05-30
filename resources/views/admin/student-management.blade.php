@@ -68,8 +68,11 @@
             <table class="table table-bordered table-hover">
                 <thead class="table-dark">
                     <tr>
-                        <th>Name</th>
+                        <th>Full Name</th>
                         <th>Username</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Campus</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -78,6 +81,9 @@
                         <tr>
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->username }}</td>
+                            <td>{{ $student->email }}</td>
+                            <td>{{ $student->no_hp }}</td>
+                            <td>{{ $student->campus }}</td>
                             <td>
                                 <a href="{{ route('admin.student-management.edit', $student->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                 <form action="{{ route('admin.student-management.destroy', $student->id) }}" method="POST" class="d-inline">
@@ -88,7 +94,7 @@
                             </td>
                         </tr>
                     @empty
-                        <tr><td colspan="3" class="text-center text-muted">No students found.</td></tr>
+                        <tr><td colspan="5" class="text-center text-muted">No students found.</td></tr>
                     @endforelse
                 </tbody>
             </table>

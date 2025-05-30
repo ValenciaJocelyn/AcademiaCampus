@@ -70,6 +70,8 @@
                     <tr>
                         <th>Name</th>
                         <th>Username</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -78,6 +80,8 @@
                         <tr>
                             <td>{{ $admin->name }}</td>
                             <td>{{ $admin->username }}</td>
+                            <td>{{ $admin->email }}</td>
+                            <td>{{ $admin->no_hp }}</td>
                             <td>
                                 <a href="{{ route('admin.admin-management.edit', $admin->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                 <form action="{{ route('admin.admin-management.destroy', $admin->id) }}" method="POST" class="d-inline">
