@@ -25,6 +25,7 @@
           <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
           <li><a href="{{ route('admin.shuttle-management') }}"><i class="fas fa-user-graduate"></i> Shuttle Management</a></li>
           <li class="active"><a href="{{ route('admin.admin-management') }}"><i class="fas fa-book"></i> Admin Management</a></li>
+          <li><a href="{{ route('admin.student-management') }}"><i class="fas fa-book"></i> Student Management</a></li>
         </ul>
       </nav>
 
@@ -46,7 +47,7 @@
       <header class="header">
         <div class="search-container">
           <i class="fas fa-search search-icon"></i>
-          <input type="text" placeholder="Search Courses, Tasks" class="search-box" />
+          <input type="text" placeholder="Search Admin" class="search-box" />
         </div>
 
         <div class="profile">
@@ -92,8 +93,7 @@
                 </tbody>
             </table>
         </section>
-
+    </main>
   <script src="{{ asset('scripts/default.js') }}"></script>
-  <script src="{{ asset('scripts/dashboard.js') }}"></script>
 </body>
 </html>

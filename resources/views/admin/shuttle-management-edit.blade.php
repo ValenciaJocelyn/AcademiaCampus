@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
+
   <title>Shuttle - Academia Campus</title>
-  
+
   <link rel="stylesheet" href="{{ asset('css/default.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
   <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
@@ -19,12 +19,13 @@
   <div class="container">
     <aside class="sidebar">
       <div class="logo">Academia Campus</div>
-    
+
       <nav class="nav-menu">
         <ul>
           <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
           <li class="active"><a href="{{ route('admin.shuttle-management') }}"><i class="fas fa-user-graduate"></i> Shuttle Management</a></li>
           <li><a href="{{ route('admin.admin-management') }}"><i class="fas fa-book"></i> Admin Management</a></li>
+          <li><a href="{{ route('admin.student-management') }}"><i class="fas fa-book"></i> Student Management</a></li>
         </ul>
       </nav>
 
@@ -48,7 +49,7 @@
           <i class="fas fa-search search-icon"></i>
           <input type="text" placeholder="Search Courses, Tasks" class="search-box" />
         </div>
-        
+
         <div class="profile">
           <span class="notification">🔔</span>
           <img src="https://i.pravatar.cc/40" alt="User" class="avatar">
@@ -103,7 +104,7 @@
         <a href="{{ route('admin.shuttle-management') }}" class="btn btn-secondary ms-2">Back</a>
     </form>
 </section>
-      
+
   <script src="{{ asset('scripts/default.js') }}"></script>
   <script src="{{ asset('scripts/dashboard.js') }}"></script>
 </body>

@@ -25,6 +25,7 @@
           <li class="active"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
           <li><a href="{{ route('admin.shuttle-management') }}"><i class="fas fa-user-graduate"></i> Shuttle Management</a></li>
           <li><a href="{{ route('admin.admin-management') }}"><i class="fas fa-book"></i> Admin Management</a></li>
+          <li><a href="{{ route('admin.student-management') }}"><i class="fas fa-book"></i> Student Management</a></li>
         </ul>
       </nav>
 

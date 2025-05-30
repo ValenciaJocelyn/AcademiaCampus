@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShuttleBookingController;
 use App\Http\Controllers\AdminManagementController;
+use App\Http\Controllers\StudentManagementController;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/shuttle-booking', [ShuttleBookingController::class, 'create'])->name('shuttle-booking.create');
     Route::post('/shuttle-booking', [ShuttleBookingController::class, 'store'])->name('shuttle-booking.store');
+
+    Route::put('/setting', [StudentManagementController::class, 'update'])->name('student-management.update');
 });
 
 Route::get('/mahasiswa/dashboard', function () {
@@ -68,6 +71,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/admin-management/{id}/edit', [AdminManagementController::class, 'edit'])->name('admin-management.edit');
     Route::put('/admin-management/{id}', [AdminManagementController::class, 'update'])->name('admin-management.update');
     Route::delete('/admin-management/{id}', [AdminManagementController::class, 'destroy'])->name('admin-management.destroy');
+
+    Route::get('/student-management', [StudentManagementController::class, 'index'])->name('student-management');
+    Route::get('/student-management/create', [StudentManagementController::class, 'create'])->name('student-management.create');
+    Route::post('/student-management', [StudentManagementController::class, 'store'])->name('student-management.store');
+    Route::get('/student-management/{id}/edit', [StudentManagementController::class, 'edit'])->name('student-management.edit');
+    Route::put('/student-management/{id}', [StudentManagementController::class, 'update'])->name('student-management.update');
+    Route::delete('/student-management/{id}', [StudentManagementController::class, 'destroy'])->name('student-management.destroy');
 });
 
 

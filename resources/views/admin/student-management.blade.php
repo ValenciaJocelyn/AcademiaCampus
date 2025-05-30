@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Admin Management - Academia Campus</title>
+  <title>Student Management - Academia Campus</title>
 
   <link rel="stylesheet" href="{{ asset('css/default.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
@@ -24,7 +24,8 @@
         <ul>
           <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
           <li><a href="{{ route('admin.shuttle-management') }}"><i class="fas fa-user-graduate"></i> Shuttle Management</a></li>
-          <li class="active"><a href="{{ route('admin.admin-management') }}"><i class="fas fa-book"></i> Admin Management</a></li>
+          <li><a href="{{ route('admin.admin-management') }}"><i class="fas fa-book"></i> Admin Management</a></li>
+          <li class="active"><a href="{{ route('admin.student-management') }}"><i class="fas fa-book"></i> Student Management</a></li>
         </ul>
       </nav>
 
@@ -46,23 +47,23 @@
       <header class="header">
         <div class="search-container">
           <i class="fas fa-search search-icon"></i>
-          <input type="text" placeholder="Search Courses, Tasks" class="search-box" />
+          <input type="text" placeholder="Search Student" class="search-box" />
         </div>
 
         <div class="profile">
-          <span class="notification">🔔</span>
-          <img src="https://i.pravatar.cc/40" alt="User" class="avatar">
+            <i class="fas fa-bell notification"></i>
+            <img src="https://i.pravatar.cc/40" alt="User" class="avatar">
         </div>
       </header>
 
         <section class="main-content container py-4">
-            <h2 class="mb-4">Admin Management</h2>
+            <h2 class="mb-4">Student Management</h2>
 
             @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
 
-            <a href="{{ route('admin.admin-management.create') }}" class="btn btn-success mb-3">Add Admin</a>
+            <a href="{{ route('admin.student-management.create') }}" class="btn btn-success mb-3">Add Student</a>
 
             <table class="table table-bordered table-hover">
                 <thead class="table-dark">
@@ -73,27 +74,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($admins as $admin)
+                    @forelse ($students as $student)
                         <tr>
-                            <td>{{ $admin->name }}</td>
-                            <td>{{ $admin->username }}</td>
+                            <td>{{ $student->name }}</td>
+                            <td>{{ $student->username }}</td>
                             <td>
-                                <a href="{{ route('admin.admin-management.edit', $admin->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                <form action="{{ route('admin.admin-management.destroy', $admin->id) }}" method="POST" class="d-inline">
+                                <a href="{{ route('admin.student-management.edit', $student->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                <form action="{{ route('admin.student-management.destroy', $student->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button onclick="return confirm('Delete This Admin?')" class="btn btn-sm btn-danger">Delete</button>
+                                    <button onclick="return confirm('Delete This Student?')" class="btn btn-sm btn-danger">Delete</button>
                                 </form>
                             </td>
                         </tr>
                     @empty
-                        <tr><td colspan="3" class="text-center text-muted">No admins found.</td></tr>
+                        <tr><td colspan="3" class="text-center text-muted">No students found.</td></tr>
                     @endforelse
                 </tbody>
             </table>
         </section>
-
+    </main>
   <script src="{{ asset('scripts/default.js') }}"></script>
-  <script src="{{ asset('scripts/dashboard.js') }}"></script>
 </body>
 </html>

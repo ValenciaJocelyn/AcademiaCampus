@@ -77,14 +77,17 @@
 
             <div class="profile-edit-container">
               <form class="form-profile">
+                {{-- @csrf
+                @method('PUT') --}}
+
                 <div class="form-row">
                   <div class="form-group">
                     <label for="fullname">Full Name</label>
-                    <input type="text" id="fullname" placeholder="Full name" value="{{ auth()->user()->username }}"required>
+                    <input type="text" id="fullname" placeholder="Full name" value="{{ auth()->user()->name }}"required>
                   </div>
                   <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Username" value="{{ auth()->user()->name }}" required>
+                    <input type="text" id="username" placeholder="Username" value="{{ auth()->user()->username }}" required>
                   </div>
                 </div>
 
@@ -100,7 +103,7 @@
 
                 <div class="form-group">
                   <label for="gender">Gender</label>
-                  <select id="gender" required>
+                  <select id="gender">
                     <option value="">Select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -110,7 +113,7 @@
 
                 <div class="form-group">
                   <label for="dob">Date of Birth</label>
-                  <input type="date" id="dob" required>
+                  <input type="date" id="dob">
                 </div>
 
                 <div class="form-group">

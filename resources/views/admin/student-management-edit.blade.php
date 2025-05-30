@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <title>Shuttle - Academia Campus</title>
-  
+
+  <title>Student Management - Academia Campus</title>
+
   <link rel="stylesheet" href="{{ asset('css/default.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
   <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
@@ -19,12 +19,13 @@
   <div class="container">
     <aside class="sidebar">
       <div class="logo">Academia Campus</div>
-    
+
       <nav class="nav-menu">
         <ul>
           <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
           <li><a href="{{ route('admin.shuttle-management') }}"><i class="fas fa-user-graduate"></i> Shuttle Management</a></li>
-          <li class="active"><a href="{{ route('admin.admin-management') }}"><i class="fas fa-book"></i> Admin Management</a></li>
+          <li><a href="{{ route('admin.admin-management') }}"><i class="fas fa-book"></i> Admin Management</a></li>
+          <li class="active"><a href="{{ route('admin.student-management') }}"><i class="fas fa-book"></i> Student Management</a></li>
         </ul>
       </nav>
 
@@ -43,56 +44,43 @@
     </aside>
 
     <main class="main-content">
-      <header class="header">
-        <div class="search-container">
-          <i class="fas fa-search search-icon"></i>
-          <input type="text" placeholder="Search Courses, Tasks" class="search-box" />
-        </div>
-        
-        <div class="profile">
-          <span class="notification">🔔</span>
-          <img src="https://i.pravatar.cc/40" alt="User" class="avatar">
-        </div>
-      </header>
+        <section class="main-content container py-4">
+            <h2 class="mb-4">Edit Student</h2>
 
-    <section class="main-content container py-4">
-        <h2 class="mb-4">Edit Admin</h2>
+            <form action="{{ route('admin.student-management.update', $student->id) }}" method="POST">
+                @csrf
+                @method('PUT')
 
-        <form action="{{ route('admin.admin-management.update', $admin->id) }}" method="POST">
-            @csrf
-            @method('PUT')
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ $student->name }}" required>
+                </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">Full Name</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{ $admin->name }}" required>
-            </div>
+                <div class="mb-3">
+                    <label for="no_hp" class="form-label">Phone Number</label>
+                    <input type="text" name="no_hp" id="no_hp" class="form-control" value="{{ old('no_hp', $student->no_hp) }}" required>
+                </div>
 
-            <div class="mb-3">
-                <label for="no_hp" class="form-label">Phone Number</label>
-                <input type="text" name="no_hp" id="no_hp" class="form-control" value="{{ old('no_hp', $admin->no_hp) }}" required>
-            </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" name="email" id="email" class="form-control" value="{{ $student->email }}" required>
+                </div>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" name="email" id="email" class="form-control" value="{{ $admin->email }}" required>
-            </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" value="{{ $student->username }}" required>
+                </div>
 
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" id="username" class="form-control" value="{{ $admin->username }}" required>
-            </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">New Password (leave blank to keep current)</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">New Password (leave blank to keep current)</label>
-                <input type="password" name="password" id="password" class="form-control">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Update Admin</button>
-            <a href="{{ route('admin.admin-management') }}" class="btn btn-secondary">Cancel</a>
-        </form>
-    </section>
-      
+                <button type="submit" class="btn btn-primary">Update Student</button>
+                <a href="{{ route('admin.student-management') }}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </section>
+    </main>
   <script src="{{ asset('scripts/default.js') }}"></script>
-  <script src="{{ asset('scripts/dashboard.js') }}"></script>
 </body>
 </html>
