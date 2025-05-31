@@ -159,6 +159,9 @@ php artisan migrate
 ```bash
 php artisan db:seed --class=AdminUserSeeder
 ```
+```bash
+php artisan db:seed --class=StudentUserSeeder
+```
 Ini akan membuat akun admin dengan rincian: <br>
 Username: admin <br>
 Password: admin123
