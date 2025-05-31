@@ -86,7 +86,7 @@ Pastikan sudah menginstall:
 
 ```bash
 git clone https://github.com/ValenciaJocelyn/SE_AoLProject
-cd project-databasedesign
+cd SE_AoLProject
 ```
 
 ---
