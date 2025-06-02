@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Create Student - Academia Campus</title>
+  <title>Create Lecturer - Academia Campus</title>
 
   <link rel="stylesheet" href="{{ asset('css/default.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
@@ -24,8 +24,8 @@
         <ul>
           <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
           <li><a href="{{ route('admin.admin-management') }}"><i class="fas fa-user-shield"></i> Admin Management</a></li>
-          <li class="active"><a href="{{ route('admin.student-management') }}"><i class="fas fa-user-graduate"></i> Student Management</a></li>
-          <li><a href="{{ route('admin.lecturer-management') }}"><i class="fas fa-chalkboard-teacher"></i> Lecturer Management</a></li>
+          <li><a href="{{ route('admin.student-management') }}"><i class="fas fa-user-graduate"></i> Student Management</a></li>
+          <li class="active"><a href="{{ route('admin.lecturer-management') }}"><i class="fas fa-chalkboard-teacher"></i> Lecturer Management</a></li>
           <li><a href="{{ route('admin.driver-management') }}"><i class="fas fa-id-badge"></i> Driver Management</a></li>
           <li><a href="{{ route('admin.shuttle-management') }}"><i class="fas fa-bus"></i> Shuttle Management</a></li>
         </ul>
@@ -47,9 +47,9 @@
 
     <main class="main-content">
         <section class="main-content container py-4">
-            <h2 class="mb-4">Create Student</h2>
+            <h2 class="mb-4">Create Lecturer</h2>
 
-            <form action="{{ route('admin.student-management.store') }}" method="POST">
+            <form action="{{ route('admin.lecturer-management.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Full Name</label>
@@ -101,8 +101,8 @@
                     <input type="password" name="password" id="password" class="form-control" required>
                 </div>
 
-                <button type="submit" class="btn btn-success">Create Student</button>
-                <a href="{{ route('admin.student-management') }}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-success">Create Lecturer</button>
+                <a href="{{ route('admin.lecturer-management') }}" class="btn btn-secondary">Cancel</a>
             </form>
         </section>
     </main>

@@ -52,7 +52,7 @@
       <!-- Header -->
        <header class="header">
         <div>
-          <h2>Hello, Syahira!</h2>
+          <h2>Hello, {{ auth()->user()->name }}!</h2>
           <p>You are doing great. Keep practicing!</p>
         </div>
 

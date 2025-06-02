@@ -56,7 +56,13 @@
 .booking-form input[type="date"]:focus,
 .booking-form select:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: var(--primary-color);
+}
+
+.error-message {
+  color: red;
+  font-size: 0.75rem; /* sekitar text-xs */
+  margin-top: 0.25rem; /* mt-1 */
 }
 
 .btn-submit {

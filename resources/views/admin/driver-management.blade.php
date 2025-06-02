@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Admin Management - Academia Campus</title>
+  <title>Driver Management - Academia Campus</title>
 
   <link rel="stylesheet" href="{{ asset('css/default.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
@@ -23,10 +23,10 @@
       <nav class="nav-menu">
         <ul>
           <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
-          <li class="active"><a href="{{ route('admin.admin-management') }}"><i class="fas fa-user-shield"></i> Admin Management</a></li>
+          <li><a href="{{ route('admin.admin-management') }}"><i class="fas fa-user-shield"></i> Admin Management</a></li>
           <li><a href="{{ route('admin.student-management') }}"><i class="fas fa-user-graduate"></i> Student Management</a></li>
           <li><a href="{{ route('admin.lecturer-management') }}"><i class="fas fa-chalkboard-teacher"></i> Lecturer Management</a></li>
-          <li><a href="{{ route('admin.driver-management') }}"><i class="fas fa-id-badge"></i> Driver Management</a></li>
+          <li class="active"><a href="{{ route('admin.driver-management') }}"><i class="fas fa-id-badge"></i> Driver Management</a></li>
           <li><a href="{{ route('admin.shuttle-management') }}"><i class="fas fa-bus"></i> Shuttle Management</a></li>
         </ul>
       </nav>
@@ -49,52 +49,54 @@
       <header class="header">
         <div class="search-container">
           <i class="fas fa-search search-icon"></i>
-          <input type="text" placeholder="Search Admin" class="search-box" />
+          <input type="text" placeholder="Search Driver" class="search-box" />
         </div>
 
         <div class="profile">
-          <i class="fas fa-bell notification"></i>
-          <img src="https://i.pravatar.cc/40" alt="User" class="avatar">
+            <i class="fas fa-bell notification"></i>
+            <img src="https://i.pravatar.cc/40" alt="User" class="avatar">
         </div>
       </header>
 
         <section class="main-content container py-4">
-            <h2 class="mb-4">Admin Management</h2>
+            <h2 class="mb-4">Driver Management</h2>
 
             @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
 
-            <a href="{{ route('admin.admin-management.create') }}" class="btn btn-success mb-3">Add Admin</a>
+            <a href="{{ route('admin.driver-management.create') }}" class="btn btn-success mb-3">Add Driver</a>
 
             <table class="table table-bordered table-hover">
                 <thead class="table-dark">
                     <tr>
-                        <th>Name</th>
+                        <th>Full Name</th>
                         <th>Username</th>
                         <th>Email</th>
                         <th>Phone Number</th>
+                        <th>Route</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($admins as $admin)
+                    @forelse ($drivers as $driver)
                         <tr>
-                            <td>{{ $admin->name }}</td>
-                            <td>{{ $admin->username }}</td>
-                            <td>{{ $admin->email }}</td>
-                            <td>{{ $admin->no_hp }}</td>
+                            <td>{{ $driver->name }}</td>
+                            <td>{{ $driver->username }}</td>
+                            <td>{{ $driver->email }}</td>
+                            <td>{{ $driver->no_hp }}</td>
+                            <td>{{ $driver->route }}</td>
                             <td>
-                                <a href="{{ route('admin.admin-management.edit', $admin->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                <form action="{{ route('admin.admin-management.destroy', $admin->id) }}" method="POST" class="d-inline">
+                                <a href="{{ route('admin.driver-management.edit', $driver->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                <form action="{{ route('admin.driver-management.destroy', $driver->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button onclick="return confirm('Delete This Admin?')" class="btn btn-sm btn-danger">Delete</button>
+                                    <button onclick="return confirm('Delete This Driver?')" class="btn btn-sm btn-danger">Delete</button>
                                 </form>
                             </td>
                         </tr>
                     @empty
-                        <tr><td colspan="3" class="text-center text-muted">No admins found.</td></tr>
+                        <tr><td colspan="5" class="text-center text-muted">No drivers found.</td></tr>
                     @endforelse
                 </tbody>
             </table>

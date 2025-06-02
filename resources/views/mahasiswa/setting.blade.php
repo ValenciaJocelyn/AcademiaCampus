@@ -61,12 +61,16 @@
 
       <div class="settings-box">
         <aside class="settings-menu">
-          <ul>
-            <li class="active" data-section="profile">Edit Profile</li>
-            <li data-section="password">Change Password</li>
-            <li data-section="theme">Theme Settings</li>
-            <li data-section="notifications">Notification Settings</li>
-          </ul>
+            @php
+            $activeTab = session('activeTab', 'profile');
+            @endphp
+
+            <ul>
+            <li class="{{ $activeTab === 'profile' ? 'active' : '' }}" data-section="profile">Edit Profile</li>
+            <li class="{{ $activeTab === 'password' ? 'active' : '' }}" data-section="password">Change Password</li>
+            <li class="{{ $activeTab === 'theme' ? 'active' : '' }}" data-section="theme">Theme Settings</li>
+            <li class="{{ $activeTab === 'notifications' ? 'active' : '' }}" data-section="notifications">Notification Settings</li>
+            </ul>
         </aside>
 
         <section class="settings-section">
@@ -76,49 +80,50 @@
             <h3>Edit Profile</h3>
 
             <div class="profile-edit-container">
-              <form class="form-profile">
-                {{-- @csrf
-                @method('PUT') --}}
+              <form action="{{ route('student.settings.update') }}" method="POST" class="form-profile">
+                @csrf
+                @method('PUT')
 
                 <div class="form-row">
                   <div class="form-group">
-                    <label for="fullname">Full Name</label>
-                    <input type="text" id="fullname" placeholder="Full name" value="{{ auth()->user()->name }}"required>
+                    <label for="name">Full Name</label>
+                    <input type="text" name="name" id="name" value="{{ auth()->user()->name }}" required>
                   </div>
+
                   <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Username" value="{{ auth()->user()->username }}" required>
+                    <input type="text" name="username" id="username" value="{{ auth()->user()->username }}" required>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="email">Email Address</label>
-                  <input type="email" id="email" placeholder="Your email" value="{{ auth()->user()->email }}"required>
+                  <input type="email" name="email" id="email" value="{{ auth()->user()->email }}" required>
                 </div>
 
                 <div class="form-group">
-                  <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" placeholder="Phone Number" value="{{ auth()->user()->no_hp }}">
+                  <label for="no_hp">Phone Number</label>
+                  <input type="text" name="no_hp" id="no_hp" value="{{ auth()->user()->no_hp }}">
                 </div>
 
                 <div class="form-group">
                   <label for="gender">Gender</label>
-                  <select id="gender">
-                    <option value="">Select</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="others">Others</option>
+                  <select name="gender" id="gender">
+                        <option value="">Select</option>
+                        <option value="male" {{ auth()->user()->gender === 'male' ? 'selected' : '' }}>Male</option>
+                        <option value="female" {{ auth()->user()->gender === 'female' ? 'selected' : '' }}>Female</option>
+                        <option value="others" {{ auth()->user()->gender === 'others' ? 'selected' : '' }}>Others</option>
                   </select>
                 </div>
 
                 <div class="form-group">
-                  <label for="dob">Date of Birth</label>
-                  <input type="date" id="dob">
+                  <label for="dob">Birth Date</label>
+                  <input type="date" name="dob" id="dob" value="{{ auth()->user()->dob }}">
                 </div>
 
                 <div class="form-group">
                   <label for="address">Address</label>
-                  <textarea id="address" rows="3" placeholder="Your address"></textarea>
+                  <input type="text" name="address" id="address" value="{{ auth()->user()->address }}">
                 </div>
 
                 <button type="submit" class="btn-save">Save Changes</button>

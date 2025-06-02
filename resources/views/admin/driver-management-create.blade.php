@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Create Student - Academia Campus</title>
+  <title>Create Driver - Academia Campus</title>
 
   <link rel="stylesheet" href="{{ asset('css/default.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
@@ -24,9 +24,9 @@
         <ul>
           <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
           <li><a href="{{ route('admin.admin-management') }}"><i class="fas fa-user-shield"></i> Admin Management</a></li>
-          <li class="active"><a href="{{ route('admin.student-management') }}"><i class="fas fa-user-graduate"></i> Student Management</a></li>
+          <li><a href="{{ route('admin.student-management') }}"><i class="fas fa-user-graduate"></i> Student Management</a></li>
           <li><a href="{{ route('admin.lecturer-management') }}"><i class="fas fa-chalkboard-teacher"></i> Lecturer Management</a></li>
-          <li><a href="{{ route('admin.driver-management') }}"><i class="fas fa-id-badge"></i> Driver Management</a></li>
+          <li class="active"><a href="{{ route('admin.driver-management') }}"><i class="fas fa-id-badge"></i> Driver Management</a></li>
           <li><a href="{{ route('admin.shuttle-management') }}"><i class="fas fa-bus"></i> Shuttle Management</a></li>
         </ul>
       </nav>
@@ -47,9 +47,9 @@
 
     <main class="main-content">
         <section class="main-content container py-4">
-            <h2 class="mb-4">Create Student</h2>
+            <h2 class="mb-4">Create Driver</h2>
 
-            <form action="{{ route('admin.student-management.store') }}" method="POST">
+            <form action="{{ route('admin.driver-management.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Full Name</label>
@@ -72,28 +72,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="gender" class="form-label">Gender</label>
-                    <select name="gender" id="gender" class="form-control">
-                        <option value="">Select</option>
-                        <option value="male" {{ old('gender') === 'male' ? 'selected' : '' }}>Male</option>
-                        <option value="female" {{ old('gender') === 'female' ? 'selected' : '' }}>Female</option>
-                        <option value="others" {{ old('gender') === 'others' ? 'selected' : '' }}>Others</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="dob" class="form-label">Birth Date</label>
-                    <input type="date" name="dob" id="dob" class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label for="address" class="form-label">Address</label>
-                    <input type="text" name="address" id="address" class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label for="campus" class="form-label">Campus</label>
-                    <input type="text" name="campus" id="campus" class="form-control">
+                    <label for="route" class="form-label">Route</label>
+                    <input type="text" name="route" id="route" class="form-control" value="{{ old('route') }}">
                 </div>
 
                 <div class="mb-3">
@@ -101,8 +81,8 @@
                     <input type="password" name="password" id="password" class="form-control" required>
                 </div>
 
-                <button type="submit" class="btn btn-success">Create Student</button>
-                <a href="{{ route('admin.student-management') }}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-success">Create Driver</button>
+                <a href="{{ route('admin.driver-management') }}" class="btn btn-secondary">Cancel</a>
             </form>
         </section>
     </main>

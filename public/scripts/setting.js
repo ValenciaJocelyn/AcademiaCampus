@@ -97,14 +97,14 @@ themeForm.addEventListener('submit', function (e) {
   const { r, g, b } = hexToRgb(selectedColor);
   const tintColor = `rgba(${r}, ${g}, ${b}, 0.15)`;
   const paleColor = `rgba(${r}, ${g}, ${b}, 0.03)`;
-  
+
   document.documentElement.style.setProperty('--primary-color', selectedColor);
   document.documentElement.style.setProperty('--primary-hover-color', hoverColor);
   document.documentElement.style.setProperty('--primary-tint-color', tintColor);
   document.documentElement.style.setProperty('--primary-pale-color', paleColor);
-  
+
   document.documentElement.style.setProperty('--primary-text-color', isColorBright(selectedColor) ? '#000' : '#fff');
-  
+
   localStorage.setItem('primaryColor', selectedColor);
 });
 
@@ -119,7 +119,7 @@ resetBtn.addEventListener('click', function () {
   document.documentElement.style.setProperty('--primary-hover-color', defaultHover);
   document.documentElement.style.setProperty('--primary-tint-color', tintColor);
   document.documentElement.style.setProperty('--primary-pale-color', paleColor);
-  
+
   document.documentElement.style.setProperty('--primary-text-color', '#fff');
 
   primaryColorPicker.value = defaultColor;

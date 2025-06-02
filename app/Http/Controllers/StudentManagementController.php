@@ -84,6 +84,35 @@ class StudentManagementController extends Controller
         return redirect()->route('admin.student-management')->with('success', 'Student updated successfully.');
     }
 
+    public function updateSelf(Request $request)
+    {
+        /** @var \App\Models\User $student */
+        $student = Auth::user();
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $student->id,
+            'username' => 'required|string|unique:users,username,' . $student->id,
+            'no_hp' => 'required|string|max:20',
+            'password' => 'nullable|string|min:6',
+            'gender' => 'nullable|in:male,female,others',
+        ]);
+
+        $student->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'username' => $request->username,
+            'no_hp' => $request->no_hp,
+            'gender' => $request->gender,
+            'dob' => $request->dob,
+            'address' => $request->address,
+            'campus' => $request->campus,
+            'password' => $request->filled('password') ? Hash::make($request->password) : $student->password,
+        ]);
+
+        return redirect()->back()->with('success', 'Profile updated successfully.');
+    }
+
     public function destroy($id)
     {
         $student = User::findOrFail($id);

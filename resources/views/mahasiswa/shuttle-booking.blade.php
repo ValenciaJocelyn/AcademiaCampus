@@ -74,53 +74,56 @@
             @endif
 
             <form action="{{ route('shuttle-booking.store') }}" method="POST" class="booking-form">
-            @csrf
+                @csrf
 
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" value="{{ auth()->user()->username }}" disabled />
-            </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" value="{{ auth()->user()->username }}" disabled />
+                </div>
 
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" value="{{ auth()->user()->name }}" disabled />
-            </div>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" value="{{ auth()->user()->name }}" disabled />
+                </div>
 
-            <div class="form-group">
-                <label>Phone Number</label>
-                <input type="text" value="{{ auth()->user()->no_hp }}" disabled />
-            </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" value="{{ auth()->user()->no_hp }}" disabled />
+                </div>
 
-            <div class="form-group">
-                <label for="date">Date</label>
-                <input type="date" id="date" name="date" required />
-            </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" value="{{ old('date') }}" required />
+                    @error('date')
+                        <p class="error-message">{{ $message }}</p>
+                    @enderror
+                </div>
 
-            <div class="form-group">
-                <label for="hour">Hour</label>
-                <select id="hour" name="hour" required>
-                    <option value="" disabled selected>Select Hour</option>
-                    <option value="07:00">07:00</option>
-                    <option value="09:00">09:00</option>
-                    <option value="11:00">11:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="15:00">15:00</option>
-                    <option value="17:00">17:00</option>
-                    <option value="19:00">19:00</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="hour">Hour</label>
+                    <select id="hour" name="hour" required>
+                        <option value="" disabled {{ old('hour') == null ? 'selected' : '' }}>Select Hour</option>
+                        <option value="07:00" {{ old('hour') == '07:00' ? 'selected' : '' }}>07:00</option>
+                        <option value="09:00" {{ old('hour') == '09:00' ? 'selected' : '' }}>09:00</option>
+                        <option value="11:00" {{ old('hour') == '11:00' ? 'selected' : '' }}>11:00</option>
+                        <option value="13:00" {{ old('hour') == '13:00' ? 'selected' : '' }}>13:00</option>
+                        <option value="15:00" {{ old('hour') == '15:00' ? 'selected' : '' }}>15:00</option>
+                        <option value="17:00" {{ old('hour') == '17:00' ? 'selected' : '' }}>17:00</option>
+                        <option value="19:00" {{ old('hour') == '19:00' ? 'selected' : '' }}>19:00</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="route">Route</label>
-                <select id="route" name="route" required>
-                    <option value="" disabled selected>Select Route</option>
-                    <option value="Kemanggisan - Bekasi">Kemanggisan - Bekasi</option>
-                    <option value="Bekasi - Kemanggisan">Bekasi - Kemanggisan</option>
-                    <option value="Kemanggisan - Alam Sutera">Bekasi - Kemanggisan</option>
-                    <option value="Alam Sutera - Kemanggisan">Alam Sutera - Kemanggisan</option>
-                </select>
-            </div>
-            <button type="submit" class="btn-submit">Book Shuttle</button>
+                <div class="form-group">
+                    <label for="route">Route</label>
+                    <select id="route" name="route" required>
+                        <option value="" disabled {{ old('route') == null ? 'selected' : '' }}>Select Route</option>
+                        <option value="Kemanggisan - Bekasi" {{ old('route') == 'Kemanggisan - Bekasi' ? 'selected' : '' }}>Kemanggisan - Bekasi</option>
+                        <option value="Bekasi - Kemanggisan" {{ old('route') == 'Bekasi - Kemanggisan' ? 'selected' : '' }}>Bekasi - Kemanggisan</option>
+                        <option value="Kemanggisan - Alam Sutera" {{ old('route') == 'Kemanggisan - Alam Sutera' ? 'selected' : '' }}>Kemanggisan - Alam Sutera</option>
+                        <option value="Alam Sutera - Kemanggisan" {{ old('route') == 'Alam Sutera - Kemanggisan' ? 'selected' : '' }}>Alam Sutera - Kemanggisan</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Book Shuttle</button>
             </form>
         </div>
       </section>

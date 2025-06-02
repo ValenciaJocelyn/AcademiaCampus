@@ -147,7 +147,7 @@
     <aside class="right-panel">
       <div class="profile-card">
         <img src="https://i.pravatar.cc/40" alt="User" class="avatar">
-        <h3>Syifaa Syahira</h3>
+        <h3>{{ auth()->user()->name }}</h3>
         <p class="verified">Verified Student</p>
         <div class="stats">
           <div><strong>32</strong><span>Total Course</span></div>

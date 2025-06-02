@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('dob')->nullable();
             $table->string('address')->nullable();
             $table->string('campus')->nullable();
+            $table->string('route')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

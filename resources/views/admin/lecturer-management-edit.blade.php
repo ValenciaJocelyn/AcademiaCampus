@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Create Student - Academia Campus</title>
+  <title>Edit Lecturer - Academia Campus</title>
 
   <link rel="stylesheet" href="{{ asset('css/default.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
@@ -24,8 +24,8 @@
         <ul>
           <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
           <li><a href="{{ route('admin.admin-management') }}"><i class="fas fa-user-shield"></i> Admin Management</a></li>
-          <li class="active"><a href="{{ route('admin.student-management') }}"><i class="fas fa-user-graduate"></i> Student Management</a></li>
-          <li><a href="{{ route('admin.lecturer-management') }}"><i class="fas fa-chalkboard-teacher"></i> Lecturer Management</a></li>
+          <li><a href="{{ route('admin.student-management') }}"><i class="fas fa-user-graduate"></i> Student Management</a></li>
+          <li class="active"><a href="{{ route('admin.lecturer-management') }}"><i class="fas fa-chalkboard-teacher"></i> Lecturer Management</a></li>
           <li><a href="{{ route('admin.driver-management') }}"><i class="fas fa-id-badge"></i> Driver Management</a></li>
           <li><a href="{{ route('admin.shuttle-management') }}"><i class="fas fa-bus"></i> Shuttle Management</a></li>
         </ul>
@@ -47,62 +47,64 @@
 
     <main class="main-content">
         <section class="main-content container py-4">
-            <h2 class="mb-4">Create Student</h2>
+            <h2 class="mb-4">Edit Lecturer</h2>
 
-            <form action="{{ route('admin.student-management.store') }}" method="POST">
+            <form action="{{ route('admin.lecturer-management.update', $lecturer->id) }}" method="POST">
                 @csrf
+                @method('PUT')
+
                 <div class="mb-3">
                     <label for="name" class="form-label">Full Name</label>
-                    <input type="text" name="name" id="name" class="form-control" required>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ $lecturer->name }}" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" required>
+                    <input type="text" name="username" id="username" class="form-control" value="{{ $lecturer->username }}" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
-                    <input type="email" name="email" id="email" class="form-control" required>
+                    <input type="email" name="email" id="email" class="form-control" value="{{ $lecturer->email }}" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="no_hp" class="form-label">Phone Number</label>
-                    <input type="text" name="no_hp" id="no_hp" class="form-control" value="{{ old('no_hp') }}" required>
+                    <input type="text" name="no_hp" id="no_hp" class="form-control" value="{{ old('no_hp', $lecturer->no_hp) }}" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="gender" class="form-label">Gender</label>
                     <select name="gender" id="gender" class="form-control">
                         <option value="">Select</option>
-                        <option value="male" {{ old('gender') === 'male' ? 'selected' : '' }}>Male</option>
-                        <option value="female" {{ old('gender') === 'female' ? 'selected' : '' }}>Female</option>
-                        <option value="others" {{ old('gender') === 'others' ? 'selected' : '' }}>Others</option>
+                        <option value="male" {{ $lecturer->gender === 'male' ? 'selected' : '' }}>Male</option>
+                        <option value="female" {{ $lecturer->gender === 'female' ? 'selected' : '' }}>Female</option>
+                        <option value="others" {{ $lecturer->gender === 'others' ? 'selected' : '' }}>Others</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label for="dob" class="form-label">Birth Date</label>
-                    <input type="date" name="dob" id="dob" class="form-control">
+                    <input type="date" name="dob" id="dob" class="form-control" value="{{ $lecturer->dob }}">
                 </div>
 
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" name="address" id="address" class="form-control">
+                    <input type="text" name="address" id="address" class="form-control" value="{{ $lecturer->address }}">
                 </div>
 
                 <div class="mb-3">
                     <label for="campus" class="form-label">Campus</label>
-                    <input type="text" name="campus" id="campus" class="form-control">
+                    <input type="text" name="campus" id="campus" class="form-control" value="{{ $lecturer->campus }}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" required>
+                    <label for="password" class="form-label">New Password (leave blank to keep current)</label>
+                    <input type="password" name="password" id="password" class="form-control">
                 </div>
 
-                <button type="submit" class="btn btn-success">Create Student</button>
-                <a href="{{ route('admin.student-management') }}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update Lecturer</button>
+                <a href="{{ route('admin.lecturer-management') }}" class="btn btn-secondary">Cancel</a>
             </form>
         </section>
     </main>
