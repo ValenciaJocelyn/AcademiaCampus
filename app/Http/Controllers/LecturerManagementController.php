@@ -10,9 +10,20 @@ use Illuminate\Support\Facades\Hash;
 
 class LecturerManagementController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $lecturers = User::where('role', 'lecturer')->get();
+        $query = User::where('role', 'lecturer');
+
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('username', 'like', "%$search%")
+                ->orWhere('name', 'like', "%$search%");
+            });
+        }
+
+        $lecturers = $query->get();
+
         return view('admin.lecturer-management', compact('lecturers'));
     }
 

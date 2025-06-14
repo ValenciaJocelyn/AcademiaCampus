@@ -8,7 +8,6 @@
 
   <link rel="stylesheet" href="{{ asset('css/default.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -46,10 +46,10 @@
 
     <main class="main-content">
       <header class="header">
-        <div class="search-container">
-          <i class="fas fa-search search-icon"></i>
-          <input type="text" placeholder="Search Courses, Tasks" class="search-box" />
-        </div>
+        <form method="GET" action="{{ route('admin.shuttle-management') }}" class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" name="search" placeholder="Search User or Route" class="search-box" value="{{ request('search') }}" />
+        </form>
 
         <div class="profile">
           <i class="fas fa-bell notification"></i>

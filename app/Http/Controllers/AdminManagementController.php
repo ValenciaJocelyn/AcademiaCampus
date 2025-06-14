@@ -10,11 +10,23 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminManagementController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $admins = User::where('role', 'admin')->get();
+        $query = User::where('role', 'admin');
+
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('username', 'like', "%$search%")
+                ->orWhere('name', 'like', "%$search%");
+            });
+        }
+
+        $admins = $query->get();
+
         return view('admin.admin-management', compact('admins'));
     }
+
 
     public function create()
     {

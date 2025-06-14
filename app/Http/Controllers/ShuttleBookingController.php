@@ -8,9 +8,22 @@ use Illuminate\Support\Facades\Auth;
 
 class ShuttleBookingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $bookings = ShuttleBooking::with('user')->latest()->get();
+        $query = ShuttleBooking::with('user')->latest();
+
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+
+            $query->whereHas('user', function ($q) use ($search) {
+                $q->where('name', 'like', "%$search%")
+                ->orWhere('username', 'like', "%$search%");
+            })
+            ->orWhere('route', 'like', "%$search%");
+        }
+
+        $bookings = $query->get();
+
         return view('admin.shuttle-management', compact('bookings'));
     }
 
