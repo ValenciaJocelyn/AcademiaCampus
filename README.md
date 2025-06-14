@@ -157,14 +157,9 @@ php artisan migrate
 2. Jalankan seeder untuk mendapatkan akun admin diawal:
 
 ```bash
-php artisan db:seed --class=AdminUserSeeder
+php artisan db:seed --class=UserSeeder
 ```
-```bash
-php artisan db:seed --class=StudentUserSeeder
-```
-Ini akan membuat akun admin dengan rincian: <br>
-Username: admin <br>
-Password: admin123
+Ini akan membuat akun admin, lecturer, driver, dan student
 
 ---
 
