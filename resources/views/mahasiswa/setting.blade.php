@@ -55,7 +55,7 @@
 
         <div class="profile">
           <i class="fas fa-bell notification"></i>
-          <img src="https://i.pravatar.cc/40" alt="User" class="avatar">
+          <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="User" class="avatar">
         </div>
       </header>
 
@@ -80,64 +80,67 @@
             <h3>Edit Profile</h3>
 
             <div class="profile-edit-container">
-              <form action="{{ route('student.settings.update') }}" method="POST" class="form-profile">
-                @csrf
-                @method('PUT')
+                <form action="{{ route('student.settings.update') }}" method="POST" class="form-profile" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
 
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" name="name" id="name" value="{{ auth()->user()->name }}" required>
-                  </div>
+                    <div class="form-content-with-photo">
+                        <div class="form-fields">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" name="name" id="name" value="{{ auth()->user()->name }}" required>
+                                </div>
 
-                  <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username" value="{{ auth()->user()->username }}" required>
-                  </div>
-                </div>
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username" id="username" value="{{ auth()->user()->username }}" required readonly class="readonly-disabled">
+                                </div>
+                            </div>
 
-                <div class="form-group">
-                  <label for="email">Email Address</label>
-                  <input type="email" name="email" id="email" value="{{ auth()->user()->email }}" required>
-                </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" name="email" id="email" value="{{ auth()->user()->email }}" required readonly class="readonly-disabled">
+                            </div>
 
-                <div class="form-group">
-                  <label for="no_hp">Phone Number</label>
-                  <input type="text" name="no_hp" id="no_hp" value="{{ auth()->user()->no_hp }}">
-                </div>
+                            <div class="form-group">
+                                <label for="no_hp">Phone Number</label>
+                                <input type="text" name="no_hp" id="no_hp" value="{{ auth()->user()->no_hp }}">
+                            </div>
 
-                <div class="form-group">
-                  <label for="gender">Gender</label>
-                  <select name="gender" id="gender">
-                        <option value="">Select</option>
-                        <option value="male" {{ auth()->user()->gender === 'male' ? 'selected' : '' }}>Male</option>
-                        <option value="female" {{ auth()->user()->gender === 'female' ? 'selected' : '' }}>Female</option>
-                        <option value="others" {{ auth()->user()->gender === 'others' ? 'selected' : '' }}>Others</option>
-                  </select>
-                </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select name="gender" id="gender">
+                                    <option value="">Select</option>
+                                    <option value="male" {{ auth()->user()->gender === 'male' ? 'selected' : '' }}>Male</option>
+                                    <option value="female" {{ auth()->user()->gender === 'female' ? 'selected' : '' }}>Female</option>
+                                    <option value="others" {{ auth()->user()->gender === 'others' ? 'selected' : '' }}>Others</option>
+                                </select>
+                            </div>
 
-                <div class="form-group">
-                  <label for="dob">Birth Date</label>
-                  <input type="date" name="dob" id="dob" value="{{ auth()->user()->dob }}">
-                </div>
+                            <div class="form-group">
+                                <label for="dob">Birth Date</label>
+                                <input type="date" name="dob" id="dob" value="{{ auth()->user()->dob }}">
+                            </div>
 
-                <div class="form-group">
-                  <label for="address">Address</label>
-                  <input type="text" name="address" id="address" value="{{ auth()->user()->address }}">
-                </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" name="address" id="address" value="{{ auth()->user()->address }}">
+                            </div>
+                        </div>
 
-                <button type="submit" class="btn-save">Save Changes</button>
-              </form>
+                        <div class="profile-picture-container">
+                            <label for="profile-picture" class="picture-wrapper">
+                                <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="Profile Picture" class="profile-img">
+                                <div class="edit-overlay"><i class="fas fa-pen"></i></div>
+                            </label>
+                            <input type="file" id="profile-picture" name="photo" accept="image/*" hidden>
+                        </div>
+                    </div>
 
-              <div class="profile-picture-container">
-                <label for="profile-picture" class="picture-wrapper">
-                  <img src="https://i.pravatar.cc/40" alt="Profile Picture" class="profile-img">
-                  <div class="edit-overlay"><i class="fas fa-pen"></i></div>
-                </label>
-                <input type="file" id="profile-picture" accept="image/*" hidden>
-              </div>
+                    <button type="submit" class="btn-save">Save Changes</button>
+                </form>
             </div>
-          </div>
 
           <!-- Change Password -->
           <div id="password" class="settings-panel">

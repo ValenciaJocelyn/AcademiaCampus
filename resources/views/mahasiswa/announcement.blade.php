@@ -52,7 +52,7 @@
 
         <div class="profile">
           <i class="fas fa-bell notification"></i>
-          <img src="https://i.pravatar.cc/40" alt="User" class="avatar">
+          <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="User" class="avatar">
         </div>
       </header>
 

@@ -17,7 +17,8 @@ class UserSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'no_hp' => '081234567890',
                 'password' => Hash::make('admin123'),
-                'role' => 'admin'
+                'role' => 'admin',
+                'photo' => 'profile_photos/default-profile.jpg'
             ],
             [
                 'name' => 'Valencia Jocelyn',
@@ -25,7 +26,8 @@ class UserSeeder extends Seeder
                 'email' => 'valencia.zhiang@binus.ac.id',
                 'no_hp' => '0895618071073',
                 'password' => Hash::make('student123'),
-                'role' => 'student'
+                'role' => 'student',
+                'photo' => 'profile_photos/default-profile.jpg'
             ],
             [
                 'name' => 'Super Lecturer',
@@ -33,7 +35,8 @@ class UserSeeder extends Seeder
                 'email' => 'lecturer@binus.ac.id',
                 'no_hp' => '081122223333',
                 'password' => Hash::make('lecturer123'),
-                'role' => 'lecturer'
+                'role' => 'lecturer',
+                'photo' => 'profile_photos/default-profile.jpg'
             ],
             [
                 'name' => 'Super Driver',
@@ -41,7 +44,8 @@ class UserSeeder extends Seeder
                 'email' => 'driver@gmail.com',
                 'no_hp' => '081212341234',
                 'password' => Hash::make('driver123'),
-                'role' => 'driver'
+                'role' => 'driver',
+                'photo' => 'profile_photos/default-profile.jpg'
             ]
         ]);
     }

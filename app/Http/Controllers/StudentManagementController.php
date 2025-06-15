@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class StudentManagementController extends Controller
 {
@@ -107,19 +108,33 @@ class StudentManagementController extends Controller
             'no_hp' => 'required|string|max:20',
             'password' => 'nullable|string|min:6',
             'gender' => 'nullable|in:male,female,others',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $student->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'username' => $request->username,
-            'no_hp' => $request->no_hp,
-            'gender' => $request->gender,
-            'dob' => $request->dob,
-            'address' => $request->address,
-            'campus' => $request->campus,
-            'password' => $request->filled('password') ? Hash::make($request->password) : $student->password,
-        ]);
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('profile_photos', 'public');
+
+            if ($student->photo !== 'profile_photos/default-profile.jpg' && Storage::disk('public')->exists($student->photo)) {
+                Storage::disk('public')->delete($student->photo);
+            }
+
+            $student->photo = $path;
+        }
+
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->username = $request->username;
+        $student->no_hp = $request->no_hp;
+        $student->gender = $request->gender;
+        $student->dob = $request->dob;
+        $student->address = $request->address;
+        $student->campus = $request->campus;
+
+        if ($request->filled('password')) {
+            $student->password = Hash::make($request->password);
+        }
+
+        $student->save();
 
         return redirect()->back()->with('success', 'Profile updated successfully.');
     }
