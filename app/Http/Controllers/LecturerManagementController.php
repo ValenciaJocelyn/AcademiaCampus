@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class LecturerManagementController extends Controller
 {
@@ -74,7 +75,8 @@ class LecturerManagementController extends Controller
             'username' => 'required|string|unique:users,username,' . $lecturer->id,
             'no_hp' => 'required|string|max:20',
             'password' => 'nullable|string|min:6',
-            'gender' => 'nullable|in:male,female,others'
+            'gender' => 'nullable|in:male,female,others',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $lecturer->name = $request->name;
@@ -88,6 +90,20 @@ class LecturerManagementController extends Controller
 
         if ($request->filled('password')) {
             $lecturer->password = Hash::make($request->password);
+        }
+
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo');
+
+            if ($lecturer->photo && $lecturer->photo !== 'profile_photos/default-profile.jpg') {
+                Storage::disk('public')->delete($lecturer->photo);
+            }
+
+            $extension = $photo->getClientOriginalExtension();
+            $filename = $lecturer->username . '.' . $extension;
+
+            $path = $photo->storeAs('profile_photos', $filename, 'public');
+            $lecturer->photo = $path;
         }
 
         $lecturer->save();

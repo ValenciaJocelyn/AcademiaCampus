@@ -236,26 +236,19 @@ canvas#weeklyChart {
   margin-top: 210px;
 }
 
-/* .breakdown-legend {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 10px;
-} */
-
 .breakdown-legend {
   display: flex;
   flex-direction: column;
   font-size: 14px;
   margin-top: 10px;
 }
+
 .breakdown-legend div {
   display: flex;
   justify-content: space-between;
   margin: 4px 0;
   color: #555;
 }
-
 
 .legend-item {
   display: flex;
@@ -318,6 +311,7 @@ canvas#weeklyChart {
 .event-scroll::-webkit-scrollbar {
   width: 6px;
 }
+
 .event-scroll::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 4px;
@@ -396,7 +390,6 @@ canvas#weeklyChart {
   padding: 0 20px;
   margin-top: 40px;
   box-sizing: border-box;
-  background-color: var(--primary-pale-color);
 }
 
 /* Kalender bulanan */

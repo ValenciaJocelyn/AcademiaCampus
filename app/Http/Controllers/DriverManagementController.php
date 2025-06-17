@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class DriverManagementController extends Controller
 {
@@ -71,6 +72,7 @@ class DriverManagementController extends Controller
             'username' => 'required|string|unique:users,username,' . $driver->id,
             'no_hp' => 'required|string|max:20',
             'password' => 'nullable|string|min:6',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $driver->name = $request->name;
@@ -81,6 +83,20 @@ class DriverManagementController extends Controller
 
         if ($request->filled('password')) {
             $driver->password = Hash::make($request->password);
+        }
+
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo');
+
+            if ($driver->photo && $driver->photo !== 'profile_photos/default-profile.jpg') {
+                Storage::disk('public')->delete($driver->photo);
+            }
+
+            $extension = $photo->getClientOriginalExtension();
+            $filename = $driver->username . '.' . $extension;
+
+            $path = $photo->storeAs('profile_photos', $filename, 'public');
+            $driver->photo = $path;
         }
 
         $driver->save();

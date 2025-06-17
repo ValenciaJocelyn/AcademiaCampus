@@ -75,7 +75,8 @@ class StudentManagementController extends Controller
             'username' => 'required|string|unique:users,username,' . $student->id,
             'no_hp' => 'required|string|max:20',
             'password' => 'nullable|string|min:6',
-            'gender' => 'nullable|in:male,female,others'
+            'gender' => 'nullable|in:male,female,others',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $student->name = $request->name;
@@ -89,6 +90,20 @@ class StudentManagementController extends Controller
 
         if ($request->filled('password')) {
             $student->password = Hash::make($request->password);
+        }
+
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo');
+
+            if ($student->photo && $student->photo !== 'profile_photos/default-profile.jpg') {
+                Storage::disk('public')->delete($student->photo);
+            }
+
+            $extension = $photo->getClientOriginalExtension();
+            $filename = $student->username . '.' . $extension;
+
+            $path = $photo->storeAs('profile_photos', $filename, 'public');
+            $student->photo = $path;
         }
 
         $student->save();
