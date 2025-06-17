@@ -63,10 +63,12 @@
           <p>Total Meetings: 14</p>
           <p>Present: 13</p>
           <p>Absent: 1</p>
-          <div class="progress-bar">
-            <div class="progress" style="width: 93%"></div>
+          <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress" style="width: 93%"></div>
+              </div>
+              <small>93% attendance</small>
           </div>
-          <small>93% attendance</small>
         </div>
 
         <div class="card">
@@ -74,10 +76,12 @@
           <p>Total Meetings: 14</p>
           <p>Present: 12</p>
           <p>Absent: 2</p>
-          <div class="progress-bar">
-            <div class="progress" style="width: 86%"></div>
+          <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress" style="width: 86%"></div>
+              </div>
+              <small>86% attendance</small>
           </div>
-          <small>86% attendance</small>
         </div>
 
         <div class="card">
@@ -85,10 +89,12 @@
           <p>Total Meetings: 14</p>
           <p>Present: 11</p>
           <p>Absent: 3</p>
-          <div class="progress-bar">
-            <div class="progress" style="width: 79%"></div>
+          <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress" style="width: 79%"></div>
+              </div>
+              <small>79% attendance</small>
           </div>
-          <small>79% attendance</small>
         </div>
 
         <div class="card">
@@ -96,10 +102,12 @@
           <p>Total Meetings: 14</p>
           <p>Present: 12</p>
           <p>Absent: 2</p>
-          <div class="progress-bar">
-            <div class="progress" style="width: 86%"></div>
+          <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress" style="width: 86%"></div>
+              </div>
+              <small>86% attendance</small>
           </div>
-          <small>86% attendance</small>
         </div>
 
         <div class="card">
@@ -107,10 +115,12 @@
           <p>Total Meetings: 14</p>
           <p>Present: 13</p>
           <p>Absent: 1</p>
-          <div class="progress-bar">
-            <div class="progress" style="width: 93%"></div>
+          <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress" style="width: 93%"></div>
+              </div>
+              <small>93% attendance</small>
           </div>
-          <small>93% attendance</small>
         </div>
 
         <div class="card">
@@ -118,10 +128,12 @@
           <p>Total Meetings: 14</p>
           <p>Present: 14</p>
           <p>Absent: 0</p>
-          <div class="progress-bar">
-            <div class="progress" style="width: 100%"></div>
+          <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress" style="width: 100%"></div>
+              </div>
+              <small>100% attendance</small>
           </div>
-          <small>100% attendance</small>
         </div>
 
         <div class="card">
@@ -129,10 +141,12 @@
           <p>Total Meetings: 14</p>
           <p>Present: 13</p>
           <p>Absent: 1</p>
-          <div class="progress-bar">
-            <div class="progress" style="width: 93%"></div>
+          <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress" style="width: 93%"></div>
+              </div>
+              <small>93% attendance</small>
           </div>
-          <small>93% attendance</small>
         </div>
       </section>
     </main>

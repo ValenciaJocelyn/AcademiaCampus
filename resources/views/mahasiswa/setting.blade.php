@@ -141,6 +141,7 @@
                     <button type="submit" class="btn-save">Save Changes</button>
                 </form>
             </div>
+          </div>
 
           <!-- Change Password -->
           <div id="password" class="settings-panel">
@@ -183,7 +184,7 @@
               <div class="theme-item">
                 <label for="primaryColor">Primary Color</label>
                 <p>Customize the look and feel of your workspace.</p>
-                <input type="color" id="primaryColor" name="primaryColor" value="#5a3ef9">
+                <input type="color" id="primaryColor" class="colorInput" name="primaryColor" value="#5a3ef9">
               </div>
               <div style="display: flex; gap: 1rem; margin-top: 1rem;">
                 <button type="submit" class="btn-save">Save Changes</button>

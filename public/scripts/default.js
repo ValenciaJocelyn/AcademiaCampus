@@ -33,22 +33,28 @@
     }
 
     // Fungsi untuk pilih warna teks: hitam atau putih berdasarkan brightness
-    function getTextColor(hex) {
+    function getPrimaryTextColor(hex) {
       const rgb = hexToRgb(hex);
       const brightness = getBrightness(rgb);
       return brightness > 180 ? '#000000' : '#FFFFFF';  // Threshold 180 bisa disesuaikan
+    }
+
+    function getSecondaryTextColor(hex) {
+        return hex == '#000000' ? '#FFFFFF' : '#000000';
     }
 
     const hoverColor = darkenColor(savedColor, 20);
     const { r, g, b } = hexToRgb(savedColor);
     const tintColor = `rgba(${r}, ${g}, ${b}, 0.15)`;
     const paleColor = `rgba(${r}, ${g}, ${b}, 0.03)`;
-    const textColor = getTextColor(savedColor);
+    const ptextColor = getPrimaryTextColor(savedColor);
+    const stextColor = getSecondaryTextColor(ptextColor);
 
     root.style.setProperty('--primary-color', savedColor);
     root.style.setProperty('--primary-hover-color', hoverColor);
     root.style.setProperty('--primary-tint-color', tintColor);
     root.style.setProperty('--primary-pale-color', paleColor);
-    root.style.setProperty('--primary-text-color', textColor);
+    root.style.setProperty('--primary-text-color', ptextColor);
+    root.style.setProperty('--secondary-text-color', stextColor);
   }
 })();

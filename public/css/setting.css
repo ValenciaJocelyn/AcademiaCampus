@@ -377,6 +377,10 @@ input:checked + .slider:before {
   margin-bottom: 20px;
 }
 
+.colorInput:hover {
+    cursor: pointer;
+}
+
 /* Button */
 .btn-save {
   background-color: var(--primary-color);

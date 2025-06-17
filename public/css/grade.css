@@ -9,7 +9,7 @@
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .card h3 {
@@ -26,6 +26,7 @@
 .card:hover {
   background-color: var(--primary-color);
   transform: translateY(-5px);
+  cursor: pointer;
 }
 
 .card:hover h3, .card:hover p {
@@ -35,6 +36,5 @@
 .final-grade {
   font-weight: bold;
   font-size: 1em;
-  color: #5a3ef9;
   margin-top: 10px;
 }

@@ -64,7 +64,7 @@
       <section class="featured-courses">
         <h2>Featured Course</h2>
         <div class="featured-list">
-          <div class="featured-card active">
+          <div class="featured-card">
             <h3>Big Data Processing</h3>
             <p>12 Lessons • 40 Hours</p>
             <button>See Course</button>
@@ -96,7 +96,7 @@
             <button>See Course</button>
           </div>
           <div class="featured-card">
-            <h3>Software Engginering</h3>
+            <h3>Software Engineering</h3>
             <p>15 Lessons • 50 Hours</p>
             <button>See Course</button>
           </div>
@@ -172,7 +172,7 @@
         <h4 class="schedule-title">Schedule Class</h4>
 
         <!-- Class Item 1 -->
-        <div class="class-item active">
+        <div class="class-item">
           <div class="date">
             <p class="day">02</p>
             <p class="month">FEB</p>
@@ -194,6 +194,7 @@
             <p class="title">Object Detection with YOLOv11</p>
             <p class="meta">👥 2/3</p>
           </div>
+          <div class="arrow">➔</div>
         </div>
 
         <!-- Class Item 3 -->
@@ -206,6 +207,7 @@
             <p class="title">Database 101</p>
             <p class="meta">👥 1/3</p>
           </div>
+          <div class="arrow">➔</div>
         </div>
       </div>
     </aside>
