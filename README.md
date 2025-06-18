@@ -9,62 +9,6 @@
 
 ---
 
-## Fitur untuk Mahasiswa
-
-- Mahasiswa wajib **daftar dan login** (username = NIM).
-- Bisa langsung **pesan shuttle** di menu Shuttle Booking.
-- Di form booking:
-  - Informasi user (username, nama lengkap, nomor HP) otomatis terisi dan tidak bisa diubah.
-  - Mahasiswa hanya perlu isi **tanggal, jam, dan rute**.
-- Setelah berhasil pesan, muncul **alert notifikasi sukses**.
-
----
-
-## Fitur untuk Admin
-
-- lihat semua booking dari mahasiswa.
-- Edit booking mahasiswa.
-- Delete booking mahasiswa.
-
-- Tambah akun admin baru.
-- Lihat semua akun admin.
-- Edit data admin.
-- Hapus akun admin.
-
-- Semua data ditampilkan dalam bentuk **tabel**.
-
----
-
-## Struktur Database
-
-### Table: `users`
-
-| Kolom      | Tipe Data                |
-| ---------- | ------------------------ |
-| id         | BIGINT (PK)              |
-| name       | VARCHAR                  |
-| username   | VARCHAR                  |
-| no_hp      | VARCHAR                  |
-| role       | ENUM (admin/mahasiswa)   |
-| email      | VARCHAR                  |
-| password   | VARCHAR                  |
-| timestamps | CREATED_AT, UPDATED_AT   |
-
-### Table: `shuttle_bookings`
-
-| Kolom      | Tipe Data                |
-| ---------- | ------------------------ |
-| id         | BIGINT (PK)              |
-| user_id    | BIGINT (FK ke users.id)  |
-| route      | VARCHAR                  |
-| date       | DATE                     |
-| hour       | VARCHAR                  |
-| timestamps | CREATED_AT, UPDATED_AT   |
-
-kolom user_id di table shuttle bookings merupakan foreign key dari kolom ID dari table users supaya tau user mana yang melakukan booking
-
----
-
 # Cara Menjalankan Project
 
 ---
@@ -121,7 +65,7 @@ php artisan key:generate
 4. Buat database baru dengan nama:
 
 ```
-shuttle_app
+academia
 ```
 
 Klik **Create**.
@@ -137,7 +81,7 @@ Klik **Create**.
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=shuttle_app
+DB_DATABASE=academia
 DB_USERNAME=root
 DB_PASSWORD=
 ```
@@ -157,9 +101,8 @@ php artisan migrate
 2. Jalankan seeder untuk mendapatkan akun admin diawal:
 
 ```bash
-php artisan db:seed --class=UserSeeder
+php artisan db:seed
 ```
-Ini akan membuat akun admin, lecturer, driver, dan student
 
 ---
 

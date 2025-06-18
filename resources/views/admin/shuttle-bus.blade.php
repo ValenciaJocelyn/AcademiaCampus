@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Admin Management - Academia Campus</title>
+  <title>Shuttle Bus - Academia Campus</title>
 
   <link rel="stylesheet" href="{{ asset('css/default.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
@@ -21,11 +21,11 @@
       <nav class="nav-menu">
         <ul>
           <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
-          <li class="active"><a href="{{ route('admin.admin-management') }}"><i class="fas fa-user-shield"></i> Admin Management</a></li>
+          <li><a href="{{ route('admin.admin-management') }}"><i class="fas fa-user-shield"></i> Admin Management</a></li>
           <li><a href="{{ route('admin.student-management') }}"><i class="fas fa-user-graduate"></i> Student Management</a></li>
           <li><a href="{{ route('admin.lecturer-management') }}"><i class="fas fa-chalkboard-teacher"></i> Lecturer Management</a></li>
           <li><a href="{{ route('admin.driver-management') }}"><i class="fas fa-id-badge"></i> Driver Management</a></li>
-          <li><a href="{{ route('admin.shuttle-bus') }}"><i class="fas fa-bus"></i> Shuttle Bus</a></li>
+          <li class="active"><a href="{{ route('admin.shuttle-bus') }}"><i class="fas fa-bus"></i> Shuttle Bus</a></li>
           <li><a href="{{ route('admin.shuttle-route') }}"><i class="fas fa-bus"></i> Shuttle Route</a></li>
           <li><a href="{{ route('admin.shuttle-status') }}"><i class="fas fa-bus"></i> Shuttle Status</a></li>
           <li><a href="{{ route('admin.shuttle-booking') }}"><i class="fas fa-bus"></i> Shuttle Booking</a></li>
@@ -48,9 +48,9 @@
 
     <main class="main-content">
       <header class="header">
-        <form method="GET" action="{{ route('admin.admin-management') }}" class="search-container">
+        <form method="GET" action="{{ route('admin.shuttle-bus') }}" class="search-container">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" name="search" placeholder="Search Admin" class="search-box" value="{{ request('search') }}" />
+            <input type="text" name="search" placeholder="Search Bus" class="search-box" value="{{ request('search') }}" />
         </form>
 
         <div class="profile">
@@ -60,45 +60,47 @@
       </header>
 
         <section class="main-content container py-4">
-            <h2 class="mb-4">Admin Management</h2>
+            <h2 class="mb-4">Shuttle Bus Management</h2>
 
             @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
 
-            <a href="{{ route('admin.admin-management.create') }}" class="btn btn-success mb-3">Add Admin</a>
+            <a href="{{ route('admin.shuttle-bus.create') }}" class="btn btn-success mb-3">Add Shuttle Bus</a>
 
-            <table class="table table-bordered table-hover">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($admins as $admin)
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle">
+                    <thead class="table-dark">
                         <tr>
-                            <td>{{ $admin->name }}</td>
-                            <td>{{ $admin->username }}</td>
-                            <td>{{ $admin->email }}</td>
-                            <td>{{ $admin->no_hp }}</td>
-                            <td>
-                                <a href="{{ route('admin.admin-management.edit', $admin->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                <form action="{{ route('admin.admin-management.destroy', $admin->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button onclick="return confirm('Delete This Admin?')" class="btn btn-sm btn-danger">Delete</button>
-                                </form>
-                            </td>
+                            <th>Plate Number</th>
+                            <th>Bus Type</th>
+                            <th>Route</th>
+                            <th>Actions</th>
                         </tr>
-                    @empty
-                        <tr><td colspan="3" class="text-center text-muted">No admins found.</td></tr>
-                    @endforelse
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @forelse($buses as $bus)
+                            <tr>
+                                <td>{{ $bus->plate_number }}</td>
+                                <td>{{ $bus->bus_type }}</td>
+                                <td>{{ $bus->route->route ?? '-' }}</td>
+                                <td>
+                                    <a href="{{ route('admin.shuttle-bus.edit', $bus->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                    <form action="{{ route('admin.shuttle-bus.destroy', $bus->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete This bus?')">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4" class="text-center text-muted">No buses found.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
   <script src="{{ asset('scripts/default.js') }}"></script>

@@ -25,7 +25,7 @@
           <li><a href="{{ url('/schedule') }}"><i class="fas fa-calendar-alt"></i> Schedule</a></li>
           <li><a href="{{ url('/attendance') }}"><i class="fas fa-clipboard-check"></i> Attendance</a></li>
           <li class="active"><a href="{{ url('/grade') }}"><i class="fas fa-chart-bar"></i> Grade</a></li>
-          <li><a href="{{ url('/shuttle-booking') }}"><i class="fa-solid fa-van-shuttle"></i> Shuttle Booking</a></li>
+          <li><a href="{{ url('/shuttle-overview') }}"><i class="fa-solid fa-van-shuttle"></i> Shuttle</a></li>
           <li><a href="{{ url('/announcement') }}"><i class="fas fa-bullhorn"></i> Announcement</a></li>
           <li><a href="{{ url('/setting') }}"><i class="fas fa-cog"></i> Settings</a></li>
         </ul>

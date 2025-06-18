@@ -21,13 +21,13 @@ class UserSeeder extends Seeder
                 'photo' => 'profile_photos/default-profile.jpg'
             ],
             [
-                'name' => 'Valencia Jocelyn',
+                'name' => 'Valencia Jocelyn Zhiang',
                 'username' => '2702247222',
                 'email' => 'valencia.zhiang@binus.ac.id',
                 'no_hp' => '0895618071073',
                 'password' => Hash::make('student123'),
                 'role' => 'student',
-                'photo' => 'profile_photos/default-profile.jpg'
+                'photo' => 'profile_photos/2702247222.jpg'
             ],
             [
                 'name' => 'Super Lecturer',

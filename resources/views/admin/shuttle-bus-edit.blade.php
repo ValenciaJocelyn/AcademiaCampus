@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Create Driver - Academia Campus</title>
+  <title>Shuttle Bus - Academia Campus</title>
 
   <link rel="stylesheet" href="{{ asset('css/default.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
@@ -24,8 +24,8 @@
           <li><a href="{{ route('admin.admin-management') }}"><i class="fas fa-user-shield"></i> Admin Management</a></li>
           <li><a href="{{ route('admin.student-management') }}"><i class="fas fa-user-graduate"></i> Student Management</a></li>
           <li><a href="{{ route('admin.lecturer-management') }}"><i class="fas fa-chalkboard-teacher"></i> Lecturer Management</a></li>
-          <li class="active"><a href="{{ route('admin.driver-management') }}"><i class="fas fa-id-badge"></i> Driver Management</a></li>
-          <li><a href="{{ route('admin.shuttle-bus') }}"><i class="fas fa-bus"></i> Shuttle Bus</a></li>
+          <li><a href="{{ route('admin.driver-management') }}"><i class="fas fa-id-badge"></i> Driver Management</a></li>
+          <li class="active"><a href="{{ route('admin.shuttle-bus') }}"><i class="fas fa-bus"></i> Shuttle Bus</a></li>
           <li><a href="{{ route('admin.shuttle-route') }}"><i class="fas fa-bus"></i> Shuttle Route</a></li>
           <li><a href="{{ route('admin.shuttle-status') }}"><i class="fas fa-bus"></i> Shuttle Status</a></li>
           <li><a href="{{ route('admin.shuttle-booking') }}"><i class="fas fa-bus"></i> Shuttle Booking</a></li>
@@ -48,42 +48,40 @@
 
     <main class="main-content">
         <section class="main-content container py-4">
-            <h2 class="mb-4">Create Driver</h2>
+            <h2 class="mb-4">Edit Bus</h2>
 
-            <form action="{{ route('admin.driver-management.store') }}" method="POST">
+            <form action="{{ route('admin.shuttle-bus.update', $bus->id) }}" method="POST">
                 @csrf
+                @method('PUT')
+
                 <div class="mb-3">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input type="text" name="name" id="name" class="form-control" required>
+                    <label for="plate_number" class="form-label">Plate Number</label>
+                    <input type="text" name="plate_number" id="plate_number" class="form-control" value="{{ old('plate_number', $bus->plate_number) }}" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" required>
+                    <label for="bus_type" class="form-label">Bus Type</label>
+                    <select name="bus_type" id="bus_type" class="form-select" required>
+                        <option value="">Select Bus Type</option>
+                        <option value="Campus" {{ old('bus_type', $bus->bus_type) == 'Campus' ? 'selected' : '' }}>Campus</option>
+                        <option value="Inter-campus" {{ old('bus_type', $bus->bus_type) == 'Inter-campus' ? 'selected' : '' }}>Inter-campus</option>
+                        <option value="Others" {{ old('bus_type', $bus->bus_type) == 'Others' ? 'selected' : '' }}>Others</option>
+                    </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" name="email" id="email" class="form-control" required>
+                    <label for="route_id" class="form-label">Route</label>
+                    <select name="route_id" id="route_id" class="form-select" required>
+                        @foreach($routes as $route)
+                            <option value="{{ $route->id }}" {{ old('route_id', $bus->route_id) == $route->id ? 'selected' : '' }}>
+                                {{ $route->route }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
-                <div class="mb-3">
-                    <label for="no_hp" class="form-label">Phone Number</label>
-                    <input type="text" name="no_hp" id="no_hp" class="form-control" value="{{ old('no_hp') }}" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="route" class="form-label">Route</label>
-                    <input type="text" name="route" id="route" class="form-control" value="{{ old('route') }}">
-                </div>
-
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" required>
-                </div>
-
-                <button type="submit" class="btn btn-success">Create Driver</button>
-                <a href="{{ route('admin.driver-management') }}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update Bus</button>
+                <a href="{{ route('admin.shuttle-bus') }}" class="btn btn-secondary">Cancel</a>
             </form>
         </section>
     </main>

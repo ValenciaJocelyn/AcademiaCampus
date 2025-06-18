@@ -6,6 +6,10 @@ use App\Http\Controllers\AdminManagementController;
 use App\Http\Controllers\StudentManagementController;
 use App\Http\Controllers\LecturerManagementController;
 use App\Http\Controllers\DriverManagementController;
+use App\Http\Controllers\ShuttleRouteController;
+use App\Http\Controllers\ShuttleBusController;
+use App\Http\Controllers\ShuttleStatusController;
+use App\Http\Controllers\LiveLocationController;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Auth;
@@ -32,6 +36,9 @@ Route::get('/attendance', function () {
 });
 Route::get('/grade', function () {
     return view('mahasiswa.grade');
+});
+Route::get('/shuttle-overview', function () {
+    return view('mahasiswa.shuttle-overview');
 });
 Route::get('/announcement', function () {
     return view('mahasiswa.announcement');
@@ -64,11 +71,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         return view('admin.dashboard');
     })->name('dashboard');
 
-    Route::get('/shuttle-management', [ShuttleBookingController::class, 'index'])->name('shuttle-management');
-    Route::get('/shuttle-management/{id}/edit', [ShuttleBookingController::class, 'edit'])->name('shuttle-management.edit');
-    Route::put('/shuttle-management/{id}', [ShuttleBookingController::class, 'update'])->name('shuttle-management.update');
-    Route::delete('/shuttle-management/{id}', [ShuttleBookingController::class, 'destroy'])->name('shuttle-management.destroy');
-
     Route::get('/admin-management', [AdminManagementController::class, 'index'])->name('admin-management');
     Route::get('/admin-management/create', [AdminManagementController::class, 'create'])->name('admin-management.create');
     Route::post('/admin-management', [AdminManagementController::class, 'store'])->name('admin-management.store');
@@ -96,8 +98,42 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/driver-management/{id}/edit', [DriverManagementController::class, 'edit'])->name('driver-management.edit');
     Route::put('/driver-management/{id}', [DriverManagementController::class, 'update'])->name('driver-management.update');
     Route::delete('/driver-management/{id}', [DriverManagementController::class, 'destroy'])->name('driver-management.destroy');
+
+    Route::get('/shuttle-bus', [ShuttleBusController::class, 'index'])->name('shuttle-bus');
+    Route::get('/shuttle-bus/create', [ShuttleBusController::class, 'create'])->name('shuttle-bus.create');
+    Route::post('/shuttle-bus', [ShuttleBusController::class, 'store'])->name('shuttle-bus.store');
+    Route::get('/shuttle-bus/{id}/edit', [ShuttleBusController::class, 'edit'])->name('shuttle-bus.edit');
+    Route::put('/shuttle-bus/{id}', [ShuttleBusController::class, 'update'])->name('shuttle-bus.update');
+    Route::delete('/shuttle-bus/{id}', [ShuttleBusController::class, 'destroy'])->name('shuttle-bus.destroy');
+
+    Route::get('/shuttle-route', [ShuttleRouteController::class, 'index'])->name('shuttle-route');
+    Route::get('/shuttle-route/create', [ShuttleRouteController::class, 'create'])->name('shuttle-route.create');
+    Route::post('/shuttle-route', [ShuttleRouteController::class, 'store'])->name('shuttle-route.store');
+    Route::get('/shuttle-route/{id}/edit', [ShuttleRouteController::class, 'edit'])->name('shuttle-route.edit');
+    Route::put('/shuttle-route/{id}', [ShuttleRouteController::class, 'update'])->name('shuttle-route.update');
+    Route::delete('/shuttle-route/{id}', [ShuttleRouteController::class, 'destroy'])->name('shuttle-route.destroy');
+
+    Route::get('/shuttle-status', [ShuttleStatusController::class, 'index'])->name('shuttle-status');
+    Route::get('/shuttle-status/create', [ShuttleStatusController::class, 'create'])->name('shuttle-status.create');
+    Route::post('/shuttle-status', [ShuttleStatusController::class, 'store'])->name('shuttle-status.store');
+    Route::delete('/shuttle-status/{id}', [ShuttleStatusController::class, 'destroy'])->name('shuttle-status.destroy');
+
+    Route::get('/shuttle-booking', [ShuttleBookingController::class, 'index'])->name('shuttle-booking');
+    Route::get('/shuttle-booking/{id}/edit', [ShuttleBookingController::class, 'edit'])->name('shuttle-booking.edit');
+    Route::put('/shuttle-booking/{id}', [ShuttleBookingController::class, 'update'])->name('shuttle-boooking.update');
+    Route::delete('/shuttle-booking/{id}', [ShuttleBookingController::class, 'destroy'])->name('shuttle-booking.destroy');
 });
 
+// Route::middleware(['auth', 'driver'])->group(function () {
+//     Route::get('/driver/start', [DriverController::class, 'start'])->name('driver.start');
+//     Route::post('/driver/start', [DriverController::class, 'storeSession'])->name('driver.storeSession');
+
+//     Route::get('/driver/dashboard', [DriverController::class, 'dashboard'])->name('driver.dashboard');
+//     Route::post('/driver/next', [DriverController::class, 'nextStop'])->name('driver.nextStop');
+//     Route::post('/driver/end', [DriverController::class, 'endSession'])->name('driver.endSession');
+// });
+
+Route::get('/live-location', [LiveLocationController::class, 'index'])->name('live-location');
 
 Route::post('/logout', function (Request $request) {
     Auth::guard('web')->logout();

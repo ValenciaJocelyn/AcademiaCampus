@@ -24,7 +24,7 @@ class ShuttleBookingController extends Controller
 
         $bookings = $query->get();
 
-        return view('admin.shuttle-management', compact('bookings'));
+        return view('admin.shuttle-booking', compact('bookings'));
     }
 
     public function create()
@@ -53,7 +53,7 @@ class ShuttleBookingController extends Controller
     public function edit($id)
     {
         $booking = ShuttleBooking::findOrFail($id);
-        return view('admin.shuttle-management-edit', compact('booking'));
+        return view('admin.shuttle-booking-edit', compact('booking'));
     }
 
     public function update(Request $request, $id)
@@ -68,13 +68,13 @@ class ShuttleBookingController extends Controller
 
         $booking->update($request->all());
 
-        return redirect()->route('admin.shuttle-management')->with('success', 'Booking updated successfully.');
+        return redirect()->route('admin.shuttle-booking')->with('success', 'Booking updated successfully.');
     }
 
     public function destroy($id)
     {
         ShuttleBooking::destroy($id);
 
-        return redirect()->route('admin.shuttle-management')->with('success', 'Booking deleted.');
+        return redirect()->route('admin.shuttle-booking')->with('success', 'Booking deleted.');
     }
 }
