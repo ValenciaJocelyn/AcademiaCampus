@@ -106,6 +106,24 @@ php artisan db:seed
 
 ---
 
+## Persiapan Storage
+
+1. Persiapan storage
+
+```bash
+php artisan storage:link
+```
+
+2. Copy file ke storage
+```bash
+copy public\assets\default-profile.jpg storage\app\public\profile_photos\
+copy public\assets\2702247222.jpg storage\app\public\profile_photos\
+copy public\assets\shuttle-route.png storage\app\public\
+```
+
+
+---
+
 ## Jalankan Aplikasi
 
 Jalankan server Laravel:
