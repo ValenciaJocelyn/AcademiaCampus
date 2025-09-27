@@ -35,8 +35,8 @@ Pastikan sudah menginstall:
 2. Jalankan perintah berikut:
 
 ```bash
-git clone https://github.com/ValenciaJocelyn/SE_AoLProject
-cd SE_AoLProject
+git clone https://github.com/ValenciaJocelyn/AcademiaCampus
+cd AcademiaCampus
 ```
 
 ---
